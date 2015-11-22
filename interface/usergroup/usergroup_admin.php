@@ -422,11 +422,11 @@ function authorized_clicked() {
 </script>
 
 </head>
-<body class="body_top">
+<body class="body_top usergroup-admin">
 
 <div>
     <div>
-       <table>
+       <table class="table table-striped table-bordered">
 	  <tr >
 		<td><b><?php xl('User / Groups','e'); ?></b></td>
 		<td><a href="usergroup_admin_add.php" class="iframe_medium css_button"><span><?php xl('Add User','e'); ?></span></a>
@@ -436,7 +436,7 @@ function authorized_clicked() {
 	  </tr>
 	</table>
     </div>
-    <div style="width:650px;">
+    <div class="tabContainer" style="width:650px;">
         <div>
 
 <form name='userlist' method='post' action='usergroup_admin.php' onsubmit='return top.restoreSession()'>
@@ -453,12 +453,13 @@ if ($show_message == 1){
 }
 
 ?>
-<table cellpadding="1" cellspacing="0" class="showborder">
+<table cellpadding="1" cellspacing="0" class="showborder table table-bordered table-striped">
 	<tbody><tr height="22" class="showborder_head">
 		<th width="180px"><b><?php xl('Username','e'); ?></b></th>
 		<th width="270px"><b><?php xl('Real Name','e'); ?></b></th>
 		<th width="320px"><b><span class="bold"><?php xl('Additional Info','e'); ?></span></b></th>
 		<th><b><?php xl('Authorized','e'); ?>?</b></th>
+        <th></th>
 
 		<?php
 $query = "SELECT * FROM users WHERE username != '' ";

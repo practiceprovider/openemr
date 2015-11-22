@@ -6,12 +6,28 @@
 @import "compass/reset";
 @import '../css/bootstrap.scss';
 @import '../css/bootstrap-theme.scss';
+/****** variables ******/
+$break-xsmall: 480px;
+$break-small: 767px;
+$break-large: 991px;
+$break-exlarge: 1199px;
+
+/***** colors *********/
+$button-color : #245580;
+$tableHeader-bg : #BBCCFF;
+$solidgreen : #B8D8AB;
+$lightgreen: #D0E9C6;
+$requiredColor: #EF2525;
+/***** colors *********/
+$btn-lg-curve: 5px;
+$btn-sm-curve: 3px;
 
 body {
   margin: 0px 0px 0px 0px;
   /* set the base font and size for all DOM children */
   font-family: sans-serif;
   font-size: 10pt;  /* set the base font size for all DOM children */
+    
 }
 
 a {
@@ -65,7 +81,7 @@ a:hover {
   font-family: sans-serif;
   text-decoration: none;
   font-size: 10pt;
-  color: #880000;
+  color: $requiredColor;
   font-weight: bold;
 }
 
@@ -90,11 +106,13 @@ a:hover {
   font-family: sans-serif;
   font-size: 80%;
 }
-
+.layouts_title{
+    background: transparent !important;
+}
 .link {
   font-family: sans-serif;
   text-decoration: none;
-  color: #0000cc;
+//  color: #0000cc;
   font-size: 70%;
 }
 
@@ -146,8 +164,7 @@ a:hover {
 
 .title {
   font-family: sans-serif;
-  font-size: 12pt;
-  font-weight: bold;
+  font-size: 14pt;  
   text-decoration: none;
 }
 
@@ -172,7 +189,7 @@ a:hover {
  * Here we have taken variables from globals.php and turned them into CSS classes
  * these should be used in place of the GLOBAL variables -- JRM March 2008
  *=============================================================*/
-$body-color: #E2A07C;
+$body-color: #E8B151;
 .body_top { background-color: $body-color; margin: 8px }    /* $top_bg_line */
 .bgcolor2 { background-color: #fefdcf; }    /* $GLOBALS['style']['BGCOLOR2'] */
 .body_bottom { background: url('../pic/aquabg.gif') repeat; margin: 8px }  /* $bottom_bg_line */
@@ -202,6 +219,7 @@ $body-color: #E2A07C;
 #addressbook_list tr.search {
   font-size:9pt;
   font-weight:bold;
+   background: #D0E9C6;
 }
 #addressbook_list tr.head {
   font-size:10pt;
@@ -212,13 +230,7 @@ $body-color: #E2A07C;
   font-size:10pt;
 }
 #addressbook_list .inputtext {
-  font-family:monospace;
-  font-size:9pt;
-  font-weight:normal;
-  border-style:solid;
-  border-width:1px;
-  border-color: #000000;
-  background-color:transparent;
+    @extend .form-control;
 }
 #addressbook_list .button {
   font-family:sans-serif;
@@ -645,12 +657,12 @@ ul.tabNav li.current { padding-top: 0;
 ul.tabNav a { background:#A7A7A7; border: 1px solid #ffffff; border-width: 1px 1px 0; color: #333; display: block; padding: 4px 4px 5px 4px; text-decoration: none; }
 ul.tabNav li.current a { background:#FFFFFF ;padding: 8px; }*/
 
-
+@import "bootstrap/css/font-awesome.min.css";
 
 div.tabContainer { clear: both; float: left; width: 100%; }
 div.tabContainer div.tab { border: 1px solid #ffffff; color: #000; display: none; padding: 10px; }
 div.tabContainer div.current { display: block; }
-div.tab { 	min-height: 180px; background: #ffffff none repeat scroll 0 0; margin-bottom: 10px;width:665px;}
+div.tab { 	min-height: 180px; background: $lightgreen none repeat scroll 0 0; margin-bottom: 10px;width:665px;}
 div.tab_long { 	min-height: 180px; background: #ffffff none repeat scroll 0 0; margin-bottom: 10px;width:100%;}
 div.tab p:last-child { margin-bottom: 0; }
 
@@ -691,7 +703,7 @@ div.notab-right {
 */
 
 #report_parameters {
-  background-color: #ececec;
+  background-color: #D0E9C6;
   margin-top:10px;
 }
 
@@ -854,37 +866,13 @@ div.notab-right {
 }
 
 .collapse-custom {
-  background-color: hsl(190, 79%, 35%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5fd4ec", endColorstr="#12889f");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#5fd4ec), to(#12889f));
-  background-image: -moz-linear-gradient(top, #5fd4ec, #12889f);
-  background-image: -ms-linear-gradient(top, #5fd4ec, #12889f);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5fd4ec), color-stop(100%, #12889f));
-  background-image: -webkit-linear-gradient(top, #5fd4ec, #12889f);
-  background-image: -o-linear-gradient(top, #5fd4ec, #12889f);
-  background-image: linear-gradient(#5fd4ec, #12889f);
-  border-color: #12889f #12889f hsl(190, 79%, 27.5%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.49);
-  -webkit-font-smoothing: antialiased;
+    color: #3c763d;
+    background-color: #d0e9c6;
 }
 
 .collapse-inner{
-  background-color: hsl(193, 79%, 63%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e8f7fc", endColorstr="#56caeb");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#e8f7fc), to(#56caeb));
-  background-image: -moz-linear-gradient(top, #e8f7fc, #56caeb);
-  background-image: -ms-linear-gradient(top, #e8f7fc, #56caeb);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e8f7fc), color-stop(100%, #56caeb));
-  background-image: -webkit-linear-gradient(top, #e8f7fc, #56caeb);
-  background-image: -o-linear-gradient(top, #e8f7fc, #56caeb);
-  background-image: linear-gradient(#e8f7fc, #56caeb);
-  border-color: #56caeb #56caeb hsl(193, 79%, 55%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.52);
-  -webkit-font-smoothing: antialiased;
+    color: #3c763d;
+    background-color: #d0e9c6;
 }
 
 #navigation-slide li a.collapsed{
@@ -1067,54 +1055,39 @@ div.notab-right {
 
 
 // Bootstrap UI Renovations
-.btn-custom {
-  background-color: hsl(191, 94%, 31%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#34d4f8", endColorstr="#047e99");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#34d4f8), to(#047e99));
-  background-image: -moz-linear-gradient(top, #34d4f8, #047e99);
-  background-image: -ms-linear-gradient(top, #34d4f8, #047e99);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #34d4f8), color-stop(100%, #047e99));
-  background-image: -webkit-linear-gradient(top, #34d4f8, #047e99);
-  background-image: -o-linear-gradient(top, #34d4f8, #047e99);
-  background-image: linear-gradient(#34d4f8, #047e99);
-  border-color: #047e99 #047e99 hsl(191, 94%, 24%);
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.46);
-  -webkit-font-smoothing: antialiased;
-}
-.btn-submit {
-  background-color: hsl(126, 48%, 51%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b7e5bb", endColorstr="#46be52");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#b7e5bb), to(#46be52));
-  background-image: -moz-linear-gradient(top, #b7e5bb, #46be52);
-  background-image: -ms-linear-gradient(top, #b7e5bb, #46be52);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b7e5bb), color-stop(100%, #46be52));
-  background-image: -webkit-linear-gradient(top, #b7e5bb, #46be52);
-  background-image: -o-linear-gradient(top, #b7e5bb, #46be52);
-  background-image: linear-gradient(#b7e5bb, #46be52);
-  border-color: #46be52 #46be52 hsl(126, 48%, 43.5%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.49);
-  -webkit-font-smoothing: antialiased;
+
+
+
+
+.btn-custom, .btn-submit {
+  @extend .btn-primary;
+        
 }
 
-.css_button_small,.css_button {
+
+.css_button_small,.css_button{
   @extend .btn-custom;
-  margin: 5px 3px !important;
-  padding: 3px 5px !important;
-  font-size: 8pt !important;
+    margin: 0px 2px !important;
+    padding: 2px 7px !important;
+    font-size: 10pt !important;
 }
-//body > table:nth-child(13) > tbody > tr > td > table:nth-child(2) > tbody > tr > td:nth-child(1) > span > a:nth-child(1)
-
 .css_button_link a {
-  @extend .btn-custom;
-  margin: 10px 3px !important;
-  padding: 5px 25px !important;
-  font-size: 8pt !important;
+    @extend .btn-custom;
+    margin: 10px 3px !important;
+    padding: 5px 25px !important;
+    font-size: 10pt !important;
+    border-radius: $btn-lg-curve;
 }
-
+.css_button_link a:hover,
+.css_button_small:hover,.css_button:hover{
+    text-decoration: none;
+}
+.css_button_small, #showMenuLink, .css_button{
+    border-radius: $btn-lg-curve;
+}
+#topToolbarRight {
+    padding-top: 4px;
+}
 span.css_button_separator {
   display: none;
 }
@@ -1159,18 +1132,6 @@ li.current {
   padding: 5px 8px !important;
 }
 
-/*********** styling from 2 Nov 2015 ***************/
-
-/****** responsive sizes ******/
-$break-xsmall: 480px;
-$break-small: 767px;
-$break-large: 991px;
-$break-exlarge: 1199px;
-/****** responsive sizes ******/
-
-
-$button-color : '#245580';
-
 .pager a,
 .pager  span {
 @extend .pagerelement;    
@@ -1182,13 +1143,21 @@ $button-color : '#245580';
     background: #fff !important;
     height: auto !important;
     padding: 5px 14px !important;
+    width: 42px;
+    text-align: center;
 }
-
-
-.tabNav{
+.btn-green{
+    @extend .btn-submit 
+}
+.tabNav,
+.nav-pills-sm{
     @extend .nav-tabs; 
     border-bottom: 0 !important;
     
+}
+.nav-pills-sm li.active a,
+.nav-pills-sm li:hover a{
+    @extend .btn-custom; 
 }
 .tabNav a{
     background-color: hsl(191, 94%, 31%) !important;
@@ -1198,7 +1167,7 @@ $button-color : '#245580';
     color: #fff;
     border-bottom: 3px solid #000 !important
 }
-.search_init, input[type='text'], input[type='entry']{
+.search_init, input[type='text'], input[type='password'], input[type='entry']{
     @extend .form-control;
     margin-bottom: 5px;
 }
@@ -1217,45 +1186,45 @@ form[name="demographics_form"] input[type="entry"]{
     background: #eee;
 }
 
-//@media(max-width: $break-small){
-//    #fsright{
-//        width: 100%;
-//        border: 1px solid;
-//        clear: both;
-//    }
-//}
 
 input[type="button"]{
     @extend .btn-custom;
     padding: 4px 17px;
     margin: 0 10px;
-    border-radius: 5px;
+    border-radius: $btn-lg-curve;
 }
 input[type="submit"]{
     @extend .btn-submit;
     padding: 4px 17px;
     margin: 0 10px;
     border-radius: 5px;
-        width: auto !important;
+    width: auto !important;
 }
 div.section{
     border-color: transparent !important;
     box-shadow: 0px 0 2px #50B4D4;
+        background: $lightgreen;
 }
 td b{
     margin-bottom: 5px;
 }
 td .css_button_small{
     float: none !important;
-    padding: 5px 10px !important;
+    padding: 5px 25px !important;
     margin: 0 !important;
+    border-radius: $btn-lg-curve;
+}
+.css_button_small:hover{
+    text-decoration: none;
 }
 select[name="sel_frame"]{    
     font-size: 9pt;
     width: 100%;
-    background: #E47C43 !important;
-    
-    border-radius: 5px;
+    background: #fff !important;    
+    border-radius: $btn-lg-curve;
+}
+select:disabled {
+    background: #dddddd !important;
 }
 img#prevday{
     padding: 0 !important;
@@ -1273,4 +1242,370 @@ td.top-secondary-nav table{
 }
 input[name="type_code"]{
     @extend .form-control;
+}
+div.borderbox {
+    background: #D0E9C6;
+    width: 100%;
+}
+#navigation-slide li > a:hover{
+    @extend .collapse-inner;
+    text-decoration: none;
+    cursor: pointer;
+}
+#navigation-slide li ul ul{
+    padding-left: 5px;
+}
+#navigation-slide li > a > img{
+    display: none;
+}
+#navigation-slide li > a:before{
+    font-family: 'fontawesome';
+    margin-right: 5px;
+    color: #000;
+    font-size: 14px;
+    
+}
+#navigation-slide li > a:after{
+    font-family: 'fontawesome';
+    margin-left: 5px;
+    color: #000;    
+}
+#navigation-slide li > a#cal0:before{
+    content: "\f073";
+}
+#navigation-slide li > a#pfb0:before{
+    content: "\f15c";
+}
+#navigation-slide li > a#msg0:before{
+    content: "\f003";
+}
+#navigation-slide li > a#patimg:before{
+    content: "\f007";
+}
+#navigation-slide li > a#feeimg:before{
+    content: "\f0d6";
+}
+#navigation-slide li > a#modimg:before{
+    content: "\f0fa";
+}
+#navigation-slide li > a#proimg:before{
+    content: "\f0fa";
+}
+#navigation-slide li > a#proimg:after,
+#navigation-slide li > a#admimg:after{
+    content: "\f0d7";
+}
+#navigation-slide li > a#admimg:before{
+    content: "\f085";
+}
+#navigation-slide li > a#repimg:before{
+    content: "\f080";
+}
+#navigation-slide li > a#misimg:before{
+    content: "\f01c";
+}
+
+frameset.sidebar, frameset.main-section{
+    width: 100%
+}
+form[name="theform"] td{
+    width: auto !important;
+}
+form[name="theform"] td input,
+form[id="theform"] td input{
+    display: inline-block;
+    width: auto;
+}
+form[name="theform"] td,
+form[id="theform"] td{
+    vertical-align: middle;
+    font-size: 12px;
+}
+#img_date, #img_to_date, #img_from_date, #img_begin_date, #img_end_date, #img_deceased_date, #img_i1effective_date, #img_i1dob_date,
+#img_target_date, #img_DOB, #img_depositdate, #img_checkdate, #img_post_to_date, #img_i2effective_date, #img_i3effective_date, #img_i3dob_date,
+#img_from_doc_date, #img_to_doc_date, #img_start_date, .calandar-img, #img_FromDate, #img_ToDate{
+    display: inline-block;
+    box-sizing: border-box;    
+    padding-left: 27px;
+    background: url("../pic/calendar_full.png") no-repeat;  
+    width: 21px;
+    height: 21px;
+    
+}
+
+.bottom-panel{
+    @extend div.section;
+    padding-top: 15px;
+}
+.bottom-panel .title-bigger{
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px dashed #000;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    font-weight: bold;
+    
+}
+
+.pager span,
+.dataTables_paginate a{
+    content: '';
+    max-height: 31px;
+    overflow: hidden;
+}
+.pager span:first-child:before,
+.dataTables_paginate .paginate_disabled_previous:before{
+    content: '\f0d9 ';
+    font-family: 'fontawesome';
+    display: block;
+        padding-bottom: 50px;
+}
+.pager span:last-child:before,
+.dataTables_paginate .paginate_disabled_next:before{
+    content: '\f0da';
+    font-family: 'fontawesome';
+    display: block;
+        padding-bottom: 50px;
+}
+ul.nav-sm.nav-pills-sm li {
+    border: 1px solid;
+    border-radius: 5px 5px 0 0;
+    padding: 0;
+}
+ul.nav-sm.nav-pills-sm li a ,.rule_title a, .rule_type a {
+    margin: 0;
+}
+#dateNAV {
+    font-size: 12pt !important;
+    margin-top: -3px;
+    margin-bottom: 5px;
+}
+#times table, .view2, .view1, #datePicker .currentDate,
+#datePicker .tdDatePickerHighlight, #report_results table thead{
+    background-color: #BBCCFF !important;
+}
+.dr_container{
+    padding: 0 !important;
+}
+.drHide{    
+    position: relative;
+    top: 5px;
+}
+.drHide p{
+    display: inline-flex;
+    margin-right: 3px !important;
+}
+.bottom-panel .panel{
+    background: $solidgreen;
+    padding: 15px;
+}
+.ui-accordion .ui-accordion-header{
+    background: $solidgreen;
+    padding: 5px;
+}
+
+.ui-accordion-content{
+    background: $lightgreen !important;
+}
+.tableHead-bg,
+.table-striped > tbody > tr:nth-of-type(odd){
+  background: $tableHeader-bg !important;   
+}
+.table-pendigApproval,
+.formsAdministration-table,
+.unregisteredForm-table{
+    display: block;
+    width: 100% !important;
+}
+.table-pendigApproval tbody th,
+.showborder_head th{
+  background: $tableHeader-bg !important;   
+}
+#TdContainingButtons{
+    width: 100%;
+}
+#TdContainingButtons table{
+    width: 40%;
+}
+.showborder,
+.rule_container {
+    width: 100% !important;
+}
+.rule_container, .rule_row{
+   
+    @extend div.section;  
+    padding-bottom: 20px;
+    margin-left: 15px;
+    padding-top: 0;
+}
+.rule_row:before,
+.rule_row:after{
+    content: '';
+    width: 100%;
+    clear: both;
+}
+.formsAdministration-table td,
+.unregisteredForm-table td{
+    text-align: center;
+}
+#report_parameters .custom-width{
+    width: 800px !important;
+}
+.batchCom input[type='text'],
+.eraPosting input[type='text']
+{
+    display: inline-block;
+    width: 75%;
+}
+.batchResults input[type='text'],
+.table-eleReports input[type='text'],
+#docfilterdiv input[type='text']{
+    display: inline-block;
+    width: auto;
+}
+.batchCom textarea,
+#officenotes_edit textarea{
+    @extend .form-control;
+}
+.batchCom select{
+    width: 80%;
+}
+.batchCom table{
+    border: 1px solid #DDD;
+}
+
+/*** collapse *****/
+#objTreeMenu_1_node_1,
+#objTreeMenu_1_node_1_1,
+#objTreeMenu_1_node_1_2,
+#objTreeMenu_1_node_1_3,
+#objTreeMenu_1_node_1_4,
+#objTreeMenu_1_node_1_5,
+#objTreeMenu_1_node_1_6,
+#objTreeMenu_1_node_1_7{
+    @extend .panel-heading;
+    color: #333;    
+    border-color: #ddd;
+    display: block !important;
+    background-color: $solidgreen;
+}
+#objTreeMenu_1_node_1_7_1,
+#objTreeMenu_1_node_1_7_2,
+#objTreeMenu_1_node_1_1_1,
+#objTreeMenu_1_node_1_1_2,
+#objTreeMenu_1_node_1_1_3{
+    margin: 15px 0;
+}
+
+#documents_list table{
+    width: 100%;
+}
+div#documents_list span {
+    color: #000;
+}
+div.tabContainer div.tab,
+.table-fullwidth,
+.tableSearch{
+    width: 100% !important;
+}
+.tableBilling td,
+.tableBatchPayments td,
+.eraPosting tr{
+    background: $lightgreen !important;
+}
+.eraPosting tbody > tr > td{
+    padding: 0;
+}
+.tableBilling a.css_button_small {
+    display: inline-block;
+    margin-bottom: 5px !important;
+}
+.searchPaymentInputTD input {
+    width: 100px !important;
+    display: inline;
+}
+.tableSearch{
+    width: 100%;
+}
+.Clear li a,
+#tabs{
+    background: #000;
+//    @extend .nav-tabs;
+}
+.no-bg{
+    background: transparent!important;
+}
+.confirguration #con0 table{
+    @extend .table, .table-bordered, .table-striped;
+}
+.confirguration #con0 .col5 {
+    text-align: center;
+    width: 160px !important;
+}
+.confirguration #con0 .col5 span{
+    @extend .btn-primary;
+    display: inline-block;
+    padding: inherit;
+    border-radius: 5px;
+    margin: 3px;
+    content: '';
+    overflow: hidden;
+    width: 62px;
+    height: 30px;
+    max-height: 31px;
+    text-align: center;
+}
+.confirguration #con0 .col5 span:first-child:before{
+    content: 'Edit';
+    padding-bottom: 35px;
+    display: block;
+}
+.confirguration #con0 .col5 span:last-child:before{
+    content: 'Add';
+    padding-bottom: 35px;
+    display: block;
+}
+.loadCompendium,
+#pt_table_wrapper .dataTable{
+    background: $lightgreen;
+}
+.pager span,
+.dataTables_paginate{
+    margin-top: 10px;
+}
+#docfilterdiv > table{
+    margin: 0 !important;
+}
+#docfilterdiv .table .label{
+    font-size: inherit;
+    vertical-align: middle;
+    text-align: right;
+}
+#newlistitem{
+    background: $solidgreen;
+}
+input[type="textbox"]{
+    @extend .form-control;
+}
+.iframe.medium_modal{
+    @extend .btn-primary, input[type="button"];
+}
+.iframe.medium_modal:hover{
+    text-decoration: none;
+}
+.facilities-panel .tabContainer,
+.usergroup-admin .tabContainer,
+.mergePatients-table{
+    width: 100% !important;
+}
+.small{
+    @extend .css_button_link;
+}
+.small > a{
+    @extend .btn-primary;    
+}
+#accordion h3 span,
+#accordion h3 a{
+    color: #000;
 }
