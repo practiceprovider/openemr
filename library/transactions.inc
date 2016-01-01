@@ -34,6 +34,7 @@ function newTransaction($pid, $body, $title, $authorized = "0",
   $id = sqlInsert("INSERT INTO transactions ( " .
     "date, title, pid, user, groupname, authorized " .
 
+
     ") values ( " .
     "NOW(), '$title', '$pid', '" . $_SESSION['authUser'] .
     "', '" . $_SESSION['authProvider'] . "', '$authorized' " .

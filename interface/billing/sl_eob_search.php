@@ -707,6 +707,7 @@ if ($_POST['form_search'] || $_POST['form_print']) {
     $t_res = sqlStatement($query);
 
     $num_invoices = sqlNumRows($t_res);
+
     if ($eracount && $num_invoices != $eracount) {
       $alertmsg .= "Of $eracount remittances, there are $num_invoices " .
         "matching encounters in OpenEMR. ";

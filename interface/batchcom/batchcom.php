@@ -126,6 +126,7 @@ if ($_POST['form_action']=='Process') {
 
         // if no results.
         if (sqlNumRows($res)==0){
+
 	?>
         <html>
 	<head>

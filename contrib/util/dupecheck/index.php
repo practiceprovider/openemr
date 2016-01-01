@@ -121,6 +121,7 @@ if ($parameters['go'] == "Go") {
     }
 
     $qResults = sqlStatement($sqlstmt);
+
     while ($row = sqlFetchArray($qResults)) {
 
         if ($dupelist[$row['id']] == 1) continue;
@@ -146,6 +147,7 @@ if ($parameters['go'] == "Go") {
             $sqland = " AND ";
         }
         $mResults = sqlStatement($sqlstmt);
+
 
         if (! $mResults) continue;
         if (sqlNumRows($mResults) <= 1) continue;

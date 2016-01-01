@@ -19,6 +19,7 @@ if (! isset($parameters['otherid'])) { echo "Missing a Other matching IDs"; exit
 // get the PID matching the masterid
 $sqlstmt = "select pid from patient_data where id='".$parameters['masterid']."'";
 $qResults = sqlStatement($sqlstmt);
+
 if (! $qResults) { echo "Error fetching master PID."; exit; }
 $row = sqlFetchArray($qResults);
 $masterPID = $row['pid'];
@@ -32,6 +33,7 @@ foreach ($parameters['otherid'] as $otherID) {
     // get info about the "otherID"
     $sqlstmt = "select lname, pid from patient_data where id='".$otherID."'";
     $qResults = sqlStatement($sqlstmt);
+
     if (! $qResults) { echo "Error fetching master PID."; exit; }
     $orow = sqlFetchArray($qResults);
     $otherPID = $orow['pid'];
@@ -59,6 +61,7 @@ foreach ($parameters['otherid'] as $otherID) {
     // update all the forms* tables
     $sqlstmt = "show tables like 'form%'";
     $qResults = sqlStatement($sqlstmt);
+
     while ($row = sqlFetchArray($qResults)) {
         UpdateTable($row['Tables_in_'.$sqlconf["dbase"].' (form%)'], "pid", $otherPID, $masterPID);
     }
@@ -75,6 +78,7 @@ foreach ($parameters['otherid'] as $otherID) {
     $newlname = "~~~MERGED~~~".$orow['lname'];
     $sqlstmt = "update patient_data set lname='".$newlname."' where pid='".$otherPID."'";
     if ($commitchanges == true) $qResults = sqlStatement($sqlstmt);
+
     echo "<li>Altered last name of PID ".$otherPID." to '".$newlname."'</li>";
 
     // add patient notes regarding the merged data
@@ -99,6 +103,7 @@ function UpdateTable($tablename, $pid_col, $oldvalue, $newvalue) {
     $sqlstmt = "select count(*) as numrows from ".$tablename." where ".$pid_col."='".$oldvalue."'";
     $qResults = sqlStatement($sqlstmt);
 
+
     if ($qResults) { 
         $row = sqlFetchArray($qResults);
         if ($row['numrows'] > 0) {
@@ -107,6 +112,7 @@ function UpdateTable($tablename, $pid_col, $oldvalue, $newvalue) {
                 $qResults = sqlStatement($sqlstmt);
             }
             $rowsupdated = generic_sql_affected_rows($oemrdb);
+
             echo "<li>";
             echo "".$tablename.": ".$rowsupdated." row(s) updated<br>";
             echo "</li>";
