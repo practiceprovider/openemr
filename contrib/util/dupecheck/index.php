@@ -120,7 +120,7 @@ if ($parameters['go'] == "Go") {
         $sqlstmt .= " LIMIT 0,".$parameters['limit'];
     }
 
-    $qResults = sqlQ($sqlstmt);
+    $qResults = sqlStatement($sqlstmt);
     while ($row = sqlFetchArray($qResults)) {
 
         if ($dupelist[$row['id']] == 1) continue;
@@ -145,7 +145,7 @@ if ($parameters['go'] == "Go") {
             $sqlstmt .= $sqland . " dob='".$row['dob']."'";
             $sqland = " AND ";
         }
-        $mResults = sqlQ($sqlstmt);
+        $mResults = sqlStatement($sqlstmt);
 
         if (! $mResults) continue;
         if (sqlNumRows($mResults) <= 1) continue;

@@ -714,6 +714,40 @@ function get_db() {
   return $GLOBALS['adodb']['db'];
 }
 
+/**
+ * Generic mysql select db function
+ *
+ * @param string $database
+ */
+function generic_sql_select_db($database)
+{
+  mysql_select_db($database);
+}
+
+/**
+ * Generic mysql affected rows function
+ *
+ * @param resource $link
+ */
+function generic_sql_affected_rows($link = null)
+{
+  if (is_null($link))
+    $link = $GLOBALS['dbh'];
+  mysql_affected_rows($link);
+}
+
+/**
+ * Generic mysql insert id function
+ *
+ * @param resource $link
+ */
+function generic_sql_insert_id($link = null)
+{
+  if (is_null($link))
+    $link = $GLOBALS['dbh'];
+  mysql_insert_id($link);
+}
+
 
 
 ?>
