@@ -622,9 +622,11 @@ function get_db() {
  *
  * @param string $database
  */
-function generic_sql_select_db($database)
+function generic_sql_select_db($database, $link = null)
 {
-  mysql_select_db($database);
+  if (is_null($link))
+    $link = $GLOBALS['dbh'];
+  mysqli_select_db($link, $database);
 }
 
 /**
@@ -636,7 +638,7 @@ function generic_sql_affected_rows($link = null)
 {
   if (is_null($link))
     $link = $GLOBALS['dbh'];
-  mysql_affected_rows($link);
+  mysqli_affected_rows($link);
 }
 
 /**
@@ -648,7 +650,7 @@ function generic_sql_insert_id($link = null)
 {
   if (is_null($link))
     $link = $GLOBALS['dbh'];
-  mysql_insert_id($link);
+  mysqli_insert_id($link);
 }
 
 
