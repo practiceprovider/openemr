@@ -18,7 +18,7 @@ if (! isset($parameters['otherid'])) { echo "Missing a Other matching IDs"; exit
 
 // get the PID matching the masterid
 $sqlstmt = "select pid from patient_data where id='".$parameters['masterid']."'";
-$qResults = sqlQ($sqlstmt);
+$qResults = sqlStatement($sqlstmt);
 if (! $qResults) { echo "Error fetching master PID."; exit; }
 $row = sqlFetchArray($qResults);
 $masterPID = $row['pid'];
@@ -31,7 +31,7 @@ foreach ($parameters['otherid'] as $otherID) {
 
     // get info about the "otherID"
     $sqlstmt = "select lname, pid from patient_data where id='".$otherID."'";
-    $qResults = sqlQ($sqlstmt);
+    $qResults = sqlStatement($sqlstmt);
     if (! $qResults) { echo "Error fetching master PID."; exit; }
     $orow = sqlFetchArray($qResults);
     $otherPID = $orow['pid'];
@@ -58,7 +58,7 @@ foreach ($parameters['otherid'] as $otherID) {
    
     // update all the forms* tables
     $sqlstmt = "show tables like 'form%'";
-    $qResults = sqlQ($sqlstmt);
+    $qResults = sqlStatement($sqlstmt);
     while ($row = sqlFetchArray($qResults)) {
         UpdateTable($row['Tables_in_'.$sqlconf["dbase"].' (form%)'], "pid", $otherPID, $masterPID);
     }
@@ -74,7 +74,7 @@ foreach ($parameters['otherid'] as $otherID) {
     // alter the patient's last name to indicate they have been merged into another record
     $newlname = "~~~MERGED~~~".$orow['lname'];
     $sqlstmt = "update patient_data set lname='".$newlname."' where pid='".$otherPID."'";
-    if ($commitchanges == true) $qResults = sqlQ($sqlstmt);
+    if ($commitchanges == true) $qResults = sqlStatement($sqlstmt);
     echo "<li>Altered last name of PID ".$otherPID." to '".$newlname."'</li>";
 
     // add patient notes regarding the merged data
@@ -97,16 +97,16 @@ function UpdateTable($tablename, $pid_col, $oldvalue, $newvalue) {
     global $commitchanges, $oemrdb;
 
     $sqlstmt = "select count(*) as numrows from ".$tablename." where ".$pid_col."='".$oldvalue."'";
-    $qResults = sqlQ($sqlstmt);
+    $qResults = sqlStatement($sqlstmt);
 
     if ($qResults) { 
         $row = sqlFetchArray($qResults);
         if ($row['numrows'] > 0) {
             $sqlstmt = "update ".$tablename." set ".$pid_col."='".$newvalue."' where ".$pid_col."='".$oldvalue."'";
             if ($commitchanges == true) {
-                $qResults = sqlQ($sqlstmt);
+                $qResults = sqlStatement($sqlstmt);
             }
-            $rowsupdated = $GLOBALS['adodb']['db']->_affectedrows();
+            $rowsupdated = generic_sql_affected_rows($oemrdb);
             echo "<li>";
             echo "".$tablename.": ".$rowsupdated." row(s) updated<br>";
             echo "</li>";
