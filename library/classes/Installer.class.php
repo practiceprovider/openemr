@@ -100,7 +100,7 @@ class Installer
 
   public function root_database_connection()
   {
-    $this->dbh = $this->connect_to_database( $this->server, $this->root, $this->rootpass );
+    $this->dbh = $this->connect_to_database( $this->server, $this->root, $this->rootpass, $this->port );
     if ( $this->dbh ) {
       return TRUE;
     } else {
@@ -111,7 +111,7 @@ class Installer
 
   public function user_database_connection()
   {
-    $this->dbh = $this->connect_to_database( $this->server, $this->login, $this->pass, $this->dbname, $this->port );
+    $this->dbh = $this->connect_to_database( $this->server, $this->login, $this->pass, $this->port, $this->dbname );
     if ( ! $this->dbh ) {
       $this->error_message = "unable to connect to database as user: '$this->login'";
       return FALSE;
@@ -451,7 +451,7 @@ $config = 1; /////////////
     }
   }
 
-  private function connect_to_database( $server, $user, $password, $dbname, $port = 3306 )
+  private function connect_to_database( $server, $user, $password, $port, $dbname )
   {
     if ($server == "localhost")
       $dbh = mysqli_connect($server, $user, $password, $dbname);

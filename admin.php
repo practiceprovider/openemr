@@ -71,8 +71,6 @@ foreach ($siteslist as $sfname) {
     $dbh = mysqli_connect("$host", "$login", "$pass", $dbase, $port);
     if (!$dbh)
       $errmsg = "MySQL connect failed";
-//    else if (!mysqli_select_db($dbase, $dbh))
-//      $errmsg = "Access to database failed";
   }
 
   echo "  <td>$sfname</td>\n";

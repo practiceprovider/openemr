@@ -178,15 +178,13 @@ if (!$GLOBALS['dbh']) {
 * feature to prevent sql-injection. Will continue to
 * be compatible with previous function calls that do
 * not use binding.
-* If use adodb binding, then will return a recordset object.
-* If do not use binding, then will return a resource object.
+* It will return a recordset object.
 * The sqlFetchArray() function should be used to
-* utilize the return object (it will accept both recordset
-* and resource objects).
+* utilize the return object.
 *
 * @param  string  $statement  query
 * @param  array   $binds      binded variables array (optional)
-* @return recordset/resource
+* @return recordset
 */
 function sqlStatement($statement, $binds=NULL )
 {
@@ -210,15 +208,13 @@ function sqlStatement($statement, $binds=NULL )
 * sqlStatement() function, EXCEPT it skips the
 * audit engine. This function should only be used
 * in very special situations.
-* If use adodb binding, then will return a recordset object.
-* If do not use binding, then will return a resource object.
+* It will return a recordset object.
 * The sqlFetchArray() function should be used to
-* utilize the return object (it will accept both recordset
-* and resource objects).
+* utilize the return object.
 *
 * @param  string  $statement  query
 * @param  array   $binds      binded variables array (optional)
-* @return recordset/resource
+* @return recordset
 */
 function sqlStatementNoLog($statement, $binds=NULL )
 {
@@ -250,16 +246,14 @@ function sqlStatementCdrEngine($statement, $binds=NULL )
 }
 
 /**
-* Returns a row (as an array) from a sql recordset or resource object.
+* Returns a row (as an array) from a sql recordset.
 *
 * Function that will allow use of the adodb binding
 * feature to prevent sql-injection.
 * It will act upon the object returned from the
 * sqlStatement() function (and sqlQ() function).
-* It will automatically figure out if the input
-* object is a recordset or a resource.
 *
-* @param recordset/resource $r
+* @param recordset $r
 * @return array
 */
 function sqlFetchArray($r)
