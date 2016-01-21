@@ -31,7 +31,8 @@ function newTransaction($pid, $body, $title, $authorized = "0",
 {
 
   $body = add_escape_custom($body);
-  $id = sqlInsert("INSERT INTO transactions ( " .
+  $id = sqlInsert("insert into transactions ( " .
+
     "date, title, pid, user, groupname, authorized " .
 
     ") values ( " .

@@ -125,7 +125,9 @@ if ($_POST['form_action']=='Process') {
         $res = sqlStatement($sql);
 
         // if no results.
-        if ($GLOBALS['adodb']['db']->_affectedrows()==0){
+
+        if (sqlNumRows($res)==0){
+
 	?>
         <html>
 	<head>

@@ -310,7 +310,7 @@ $GLOBALS_METADATA = array(
       '0',                              // default
       xl('Special treatment for the Vitals form')
     ),
-
+    
   ),
 
   // Locale Tab
@@ -819,7 +819,98 @@ $GLOBALS_METADATA = array(
 	   xl('Default to a provider for line item in the fee sheet.(only applicable if Support line item billing in option above)')
     ),	
   
-  ),  
+  	'use_custom_statement' => array(
+      xl('Use Custom Statement'),
+      'bool',                           // data type
+      '0',                              // default = false
+      xl('This will use the custom Statment showing the description instead of the codes.')
+    ),
+	 
+  	'statement_bill_note_print' => array(
+      xl('Print Patient Billing Note'),
+      'bool',                           // data type
+      '0',                              // default = false
+      xl('This will allow printing of the Patient Billing Note on the statements.')
+    ),  
+	
+  	'use_dunning_message' => array(
+      xl('Use Custom Dunning Messages'),
+      'bool',                           // data type
+      '0',                              // default = false
+      xl('This will allow use of the custom Dunning Messages on the statements.')
+    ),
+	
+    'first_dun_msg_set' => array(
+      xl('Number of days before showing first account message'),
+      'num',                           // data type
+      '30',
+      xl('Number of days before showing first account message.')
+    ),
+
+    'first_dun_msg_text' => array(
+      xl('First account message'),
+      'text',                           // data type
+      '',
+      xl('Text for first account message.')
+    ),
+    
+    'second_dun_msg_set' => array(
+      xl('Number of days before showing second account message'),
+      'num',                           // data type
+      '60',
+      xl('Number of days before showing second account message.')
+    ),
+
+    'second_dun_msg_text' => array(
+      xl('Second account message'),
+      'text',                           // data type
+      '',
+      xl('Text for second account message.')
+    ),  
+
+    'third_dun_msg_set' => array(
+      xl('Number of days before showing third account message'),
+      'num',                           // data type
+      '90',
+      xl('Number of days before showing third account message.')
+    ),
+
+    'third_dun_msg_text' => array(
+      xl('Third account message'),
+      'text',                           // data type
+      '',
+      xl('Text for third account message.')
+    ),
+    
+    'fourth_dun_msg_set' => array(
+      xl('Number of days before showing fourth account message'),
+      'num',                           // data type
+      '120',
+      xl('Number of days before showing fourth account message.')
+    ),
+
+    'fourth_dun_msg_text' => array(
+      xl('Fourth account message'),
+      'text',                           // data type
+      '',
+      xl('Text for fourth account message.')
+    ),
+
+    'fifth_dun_msg_set' => array(
+      xl('Number of days before showing fifth account message'),
+      'num',                           // data type
+      '150',
+      xl('Number of days before showing fifth account message.')
+    ),
+
+    'fifth_dun_msg_text' => array(
+      xl('Fifth account message'),
+      'text',                           // data type
+      '',
+      xl('Text for fifth account message.')
+    ),
+  ),
+  
     // E-Sign Tab
     //
     'E-Sign' => array(
@@ -869,6 +960,7 @@ $GLOBALS_METADATA = array(
   ),
     //Documents Tab
     'Documents' => array(
+
         'document_storage_method' => array(
             xl('Document Storage Method'),
             array(
@@ -914,6 +1006,13 @@ $GLOBALS_METADATA = array(
             '0',
             xl('Enable log for document uploads/downloads to CouchDB'),
         ),
+
+    'expand_document_tree' => array(
+      xl('Expand All Document Categories'),
+      'bool',                           // data type
+      '0',                              // default = false
+      xl('Expand All Document Categories by Default')
+    ),
 
     'patient_id_category_name' => array(
       xl('Patient ID Category Name'),
@@ -2497,5 +2596,8 @@ $GLOBALS_METADATA = array(
     ),
 	
    ),
+   
+
+   
 );
 ?>
