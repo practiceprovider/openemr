@@ -167,7 +167,7 @@ if (!$GLOBALS['dbh']) {
 * @param  array   $binds      binded variables array (optional)
 * @return recordset
 */
-function sqlStatement($statement, $binds=NULL )
+function sqlStatement($statement, $binds=false )
 {
   // Use adodb Execute with binding and return a recordset.
   //   Note that the auditSQLEvent function is embedded
@@ -197,7 +197,7 @@ function sqlStatement($statement, $binds=NULL )
 * @param  array   $binds      binded variables array (optional)
 * @return recordset
 */
-function sqlStatementNoLog($statement, $binds=NULL )
+function sqlStatementNoLog($statement, $binds=false )
 {
   // Use adodb ExecuteNoLog with binding and return a recordset.
   $recordset = $GLOBALS['adodb']['db']->ExecuteNoLog( $statement, $binds );
@@ -216,7 +216,7 @@ function sqlStatementNoLog($statement, $binds=NULL )
 * @param  array   $binds      binded variables array (optional)
 * @return recordset/resource
 */
-function sqlStatementCdrEngine($statement, $binds=NULL )
+function sqlStatementCdrEngine($statement, $binds=false )
 {
   if ($GLOBALS['audit_events_cdr']) {
     return sqlStatement($statement,$binds);
@@ -288,7 +288,7 @@ function sqlInsert($statement, $binds=array())
 * @param  array   $binds      binded variables array (optional)
 * @return array
 */
-function sqlQuery($statement, $binds=NULL)
+function sqlQuery($statement, $binds=false)
 {
   $recordset = $GLOBALS['adodb']['db']->Execute( $statement, $binds );
 
@@ -431,27 +431,6 @@ function getSqlLastErrorNo() {
 }
 
 /**
- * Function that will safely return the last error no,
- * and accounts for the audit engine.
- *
- * @param   string  $mode either adodb(default) or native_mysql
- * @return  string        last mysql error no
- */
-function getSqlLastErrorNo($mode="adodb") {
-    if (!empty($GLOBALS['last_mysql_error_no'])) {
-        return $GLOBALS['last_mysql_error_no'];
-    }
-    else {
-        if ($mode == "adodb") {
-            return $GLOBALS['adodb']['db']->ErrorNo();
-        }
-        else { // $mode = "native_mysql"
-            return mysql_errno($GLOBALS['dbh']);
-        }
-    }
-}
-
-/**
 * Function that will return an array listing
 * of columns that exist in a table.
 *
@@ -532,7 +511,7 @@ function generate_id () {
 * @param  array   $binds      binded variables array (optional)
 * @return recordset
 */
-function sqlQ($statement, $binds=NULL )
+function sqlQ($statement, $binds=false )
 {
   $recordset = $GLOBALS['adodb']['db']->Execute( $statement, $binds ) or
     HelpfulDie("query failed: $statement", getSqlLastError());
