@@ -263,7 +263,7 @@ function sqlFetchArray($r)
 * @param  array    $binds      binded variables array (optional)
 * @return integer  Last id generated from the sql insert command
 */
-function sqlInsert($statement, $binds=array())
+function sqlInsert($statement, $binds=false)
 {
   //Run a adodb execute
   // Note the auditSQLEvent function is embedded in the
@@ -317,7 +317,7 @@ function sqlQuery($statement, $binds=false)
 * @param  array   $binds      binded variables array (optional)
 * @return array
 */
-function sqlQueryNoLog($statement, $binds=NULL)
+function sqlQueryNoLog($statement, $binds=false)
 {
   $recordset = $GLOBALS['adodb']['db']->ExecuteNoLog( $statement, $binds );
 
@@ -347,7 +347,7 @@ function sqlQueryNoLog($statement, $binds=NULL)
 * @param  array   $binds      binded variables array (optional)
 * @return array
 */
-function sqlQueryNoLogIgnoreError($statement, $binds=NULL)
+function sqlQueryNoLogIgnoreError($statement, $binds=false)
 {
   $recordset = $GLOBALS['adodb']['db']->ExecuteNoLog( $statement, $binds );
 
@@ -372,7 +372,7 @@ function sqlQueryNoLogIgnoreError($statement, $binds=NULL)
 * @param  array   $binds      binded variables array (optional)
 * @return array
 */
-function sqlQueryCdrEngine($statement, $binds=NULL )
+function sqlQueryCdrEngine($statement, $binds=false )
 {
   if ($GLOBALS['audit_events_cdr']) {
     return sqlQuery($statement,$binds);
@@ -529,7 +529,7 @@ function sqlQ($statement, $binds=false )
 * @param  array    $binds      binded variables array (optional)
 * @return integer  Last id generated from the sql insert command
 */
-function idSqlStatement($statement , $binds=NULL )
+function idSqlStatement($statement , $binds=false )
 {
   return sqlInsert($statement, $binds);
 }
@@ -545,7 +545,7 @@ function idSqlStatement($statement , $binds=NULL )
 * @param  array    $binds      binded variables array (optional)
 * @return integer  Last id generated from the sql insert command
 */
-function sqlInsertClean($statement, $binds=NULL )
+function sqlInsertClean($statement, $binds=false )
 {
   return sqlInsert($statement, $binds);
 }
