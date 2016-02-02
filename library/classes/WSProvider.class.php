@@ -13,7 +13,7 @@ class WSProvider extends WSWrapper{
 		if (!is_numeric($user_id))
 			return;
 
-		parent::WSWrapper(null,false);
+		parent::__construct(null,false);
 
 		$this->user_id = $user_id;
 		$this->_db = $GLOBALS['adodb']['db'];

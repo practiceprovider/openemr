@@ -33,7 +33,7 @@ class X12Partner extends ORDataObject{
 	 */
 	
 	function __construct ($id = "", $prefix = "")	{
-		parent::ORDataObject();
+		parent::__construct();
 		$this->id = $id;
 		$this->_table = "x12_partners";
 		$this->processing_format_array = $this->_load_enum("processing_format",false);

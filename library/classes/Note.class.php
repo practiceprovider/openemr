@@ -53,7 +53,7 @@ class Note extends ORDataObject{
 	 */
 	function __construct($id = "")	{
 		//call the parent constructor so we have a _db to work with
-		parent::ORDataObject();
+		parent::__construct();
 		
 		//shore up the most basic ORDataObject bits
 		$this->id = $id;
