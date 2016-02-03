@@ -21,9 +21,9 @@ if (!defined('__CLASS_FPDF_ALPHA__'))
 	{
 		var $tmpFiles = array(); 
 		
-		function FPDF_Alpha($orientation='P',$unit='mm',$format='A4')
+		function __construct($orientation='P',$unit='mm',$format='A4')
 		{
-			$this->FPDF_Formulaire($orientation,$unit,$format);
+			parent::__construct($orientation,$unit,$format);
 		}
 		
 		/* Public methods */
@@ -35,7 +35,7 @@ if (!defined('__CLASS_FPDF_ALPHA__'))
 				//First use of image, get info
 				if($type=='')
 				{
-					/* MODIFICATION HTML2PDF pour le support des images générées */
+					/* MODIFICATION HTML2PDF pour le support des images gï¿½nï¿½rï¿½es */
 					$type = explode('?', $file);
 					$type = pathinfo($type[0]);
 					if (!isset($type['extension']) || !$type['extension'])
@@ -53,7 +53,7 @@ if (!defined('__CLASS_FPDF_ALPHA__'))
 				}
 				$type=strtolower($type);
 
-				/* MODIFICATION HTML2PDF pour le support des images générées */
+				/* MODIFICATION HTML2PDF pour le support des images gï¿½nï¿½rï¿½es */
 				if ($type=='php' || $type=='cgi')
 				{
 					// identification des infos

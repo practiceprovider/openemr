@@ -3,7 +3,7 @@
  * Logiciel : HTML2PDF - classe FPDF_Formulaire
  * 
  * permet la gestion de champs de formulaire dans un PDF 
- * Inspiré des sources de http://fpdf.org/fr/script/script36.php et http://fpdf.org/fr/script/script40.php
+ * Inspirï¿½ des sources de http://fpdf.org/fr/script/script36.php et http://fpdf.org/fr/script/script40.php
  *
  * @author		Laurent MINGUET <webmaster@html2pdf.fr>
  */
@@ -17,13 +17,13 @@ if (!defined('__CLASS_FPDF_FORMULAIRE__'))
 	class FPDF_Formulaire extends FPDF_BookMark
 	{
 		var $javascript = '';	//javascript code
-		var $n_js;				//numéro de l'objet javascript
-		var $n_cata;			//numéro de l'objet catalogue
+		var $n_js;				//numï¿½ro de l'objet javascript
+		var $n_cata;			//numï¿½ro de l'objet catalogue
 		var $ur;				//
 		
-		function FPDF_Formulaire($orientation='P',$unit='mm',$format='A4')
+		function __construct($orientation='P',$unit='mm',$format='A4')
 		{
-			$this->FPDF_BookMark($orientation,$unit,$format);
+			parent::__construct($orientation,$unit,$format);
 			$this->PDFVersion='1.6';
 			
 			$this->ur = false;
@@ -71,7 +71,7 @@ if (!defined('__CLASS_FPDF_FORMULAIRE__'))
 		/*
 		* Create a javascript PDF string.
 		* @access protected
-		* @author Johannes Güntert, Nicola Asuni
+		* @author Johannes Gï¿½ntert, Nicola Asuni
 		*/
 		function _putjavascript()
 		{
