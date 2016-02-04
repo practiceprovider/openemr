@@ -33,9 +33,9 @@ require_once(dirname(__FILE__).'/00_fpdf_codebar.class.php');
 		var $outlines=array();
 		var $OutlineRoot;
 		
-		function __construct($orientation='P',$unit='mm',$format='A4')
+		function FPDF_BookMark($orientation='P',$unit='mm',$format='A4')
 		{
-			parent::__construct($orientation,$unit,$format);
+			$this->FPDF_Codebar($orientation,$unit,$format);
 		
 		}
 		

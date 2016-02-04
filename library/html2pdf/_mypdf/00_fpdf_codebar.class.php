@@ -44,9 +44,9 @@ if (!defined('__CLASS_FPDF_CODEBAR__'))
 	{
 		var $footer_param = array();
 		
-		function __construct($sens = 'P', $unit = 'mm', $format = 'A4')
+		function FPDF_Codebar($sens = 'P', $unit = 'mm', $format = 'A4')
 		{
-			parent::__construct($sens, $unit, $format);
+			$this->FPDF($sens, $unit, $format);
 		}
 		
 		function BARCODE_EAN13($x,$y,$w,$h, $barcode,$label=true)

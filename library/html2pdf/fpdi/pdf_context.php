@@ -37,7 +37,7 @@ if (!class_exists('pdf_context', false)) {
     
     	// Constructor
     
-    	function __construct(&$f) {
+    	function pdf_context(&$f) {
     		$this->file =& $f;
     		if (is_string($this->file))
     		    $this->_mode = 1;

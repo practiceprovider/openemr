@@ -3,7 +3,7 @@
  * Logiciel : HTML2PDF - classe styleHTML
  * 
  * Convertisseur HTML => PDF
- * Distribuï¿½ sous la licence LGPL. 
+ * Distribué sous la licence LGPL. 
  *
  * @author		Laurent MINGUET <webmaster@html2pdf.fr>
  * @version		3.31
@@ -11,10 +11,10 @@
 
 class styleHTML
 {
-	var $pdf			= null;			// rï¿½fï¿½rence au PDF parent
+	var $pdf			= null;			// référence au PDF parent
 	var $htmlColor		= array();		// liste des couleurs HTML
-	var $onlyLeft		= false;		// indique si on est dans un sous HTML et qu'on bloque ï¿½ gauche
-	var $defaultFont	= null;			// fonte par dï¿½faut si la fonte demandï¿½e n'existe pas
+	var $onlyLeft		= false;		// indique si on est dans un sous HTML et qu'on bloque à gauche
+	var $defaultFont	= null;			// fonte par défaut si la fonte demandée n'existe pas
 	
 	var $value			= array();		// valeurs actuelles
 	var $css			= array();		// tableau des CSS
@@ -24,10 +24,10 @@ class styleHTML
 	/**
 	 * Constructeur
 	 *
-	 * @param	&pdf		rï¿½fï¿½rence ï¿½ l'objet HTML2PDF parent
+	 * @param	&pdf		référence à l'objet HTML2PDF parent
 	 * @return	null
 	 */
-	function __construct(&$pdf)
+	function styleHTML(&$pdf)
 	{
 		$this->init();		// initialisation
 		$this->setPdfParent($pdf);
@@ -50,9 +50,9 @@ class styleHTML
 	}
 	
 	/**
-	* dï¿½finit la fonte par dï¿½faut si aucun fonte n'est spï¿½cifiï¿½e, ou si la fonte demandï¿½e n'existe pas
+	* définit la fonte par défaut si aucun fonte n'est spécifiée, ou si la fonte demandée n'existe pas
 	*
-	* @param	string	nom de la fonte par defaut. si null : Arial pour fonte non spï¿½cifiï¿½e, et erreur pour fonte non existante
+	* @param	string	nom de la fonte par defaut. si null : Arial pour fonte non spécifiée, et erreur pour fonte non existante
 	* @return	string	nom de l'ancienne fonte par defaut
 	*/
 	function setDefaultFont($default = null)
@@ -77,7 +77,7 @@ class styleHTML
 		$this->value = array();
 		$this->initStyle();
 		
-		// initialisation des styles sans hï¿½ritages
+		// initialisation des styles sans héritages
 		$this->resetStyle();
 	}
 	
@@ -88,8 +88,8 @@ class styleHTML
 		$this->value['id_id']				= null;			// id
 		$this->value['id_class']			= null;			// class
 		$this->value['id_lst']				= array('*');	// lst de dependance
-		$this->value['mini-size']			= 1.;			// rapport de taille	spï¿½cifique aux sup, sub
-		$this->value['mini-decal']			= 0;			// rapport de position	spï¿½cifique aux sup, sub
+		$this->value['mini-size']			= 1.;			// rapport de taille	spécifique aux sup, sub
+		$this->value['mini-decal']			= 0;			// rapport de position	spécifique aux sup, sub
 		$this->value['font-family']			= 'Arial';
 		$this->value['font-bold']			= false;
 		$this->value['font-italic']			= false;
@@ -132,7 +132,7 @@ class styleHTML
 	}
 	
 	/**
-	 * Initialisation des styles sans hï¿½ritages
+	 * Initialisation des styles sans héritages
 	 *
 	 * @param	string	balise HTML
 	 * @return	null
@@ -282,7 +282,7 @@ class styleHTML
 		elseif($family=='symbol' || $family=='zapfdingbats')
 			$style='';
 		
-		// taille en mm, ï¿½ ramener en pt
+		// taille en mm, à ramener en pt
 		$size = $this->value['font-size'];
 		$size = 72 * $size / 25.4;
 		
@@ -405,7 +405,7 @@ class styleHTML
 			if ($v) $class[] = $v;
 		}
 		
-		// identification de la balise et des styles direct qui pourraient lui ï¿½tre appliquï¿½s
+		// identification de la balise et des styles direct qui pourraient lui être appliqués
 		$this->value['id_balise']	= $balise;
 		$this->value['id_name']		= $name;
 		$this->value['id_id']		= $id;
@@ -442,7 +442,7 @@ class styleHTML
 		// style CSS
 		$styles = $this->getFromCSS();
 
-		// on ajoute le style propre ï¿½ la balise
+		// on ajoute le style propre à la balise
 		$styles = array_merge($styles, $param['style']);
 		
 		if (isset($styles['stroke']))		$this->value['svg']['stroke']		= $this->ConvertToColor($styles['stroke'],	$res);
@@ -478,7 +478,7 @@ class styleHTML
 			if ($v) $class[] = $v;
 		}
 
-		// identification de la balise et des styles direct qui pourraient lui ï¿½tre appliquï¿½s
+		// identification de la balise et des styles direct qui pourraient lui être appliqués
 		$this->value['id_balise']	= $balise;
 		$this->value['id_name']		= $name;
 		$this->value['id_id']		= $id;
@@ -505,11 +505,11 @@ class styleHTML
 		// style CSS
 		$styles = $this->getFromCSS();
 
-		// on ajoute le style propre ï¿½ la balise
+		// on ajoute le style propre à la balise
 		$styles = array_merge($styles, $param['style']);
 		if (isset($param['allwidth']) && !isset($styles['width'])) $styles['width'] = '100%';
 
-		// mise ï¿½ zero des styles non hï¿½ritï¿½s
+		// mise à zero des styles non hérités
 		$this->resetStyle($balise);
 		if ($heritage)
 		{
@@ -945,7 +945,7 @@ class styleHTML
 		
 		if ($this->onlyLeft) $this->value['text-align'] = 'left';
 		
-		// correction de la largeur pour correspondre au modï¿½le de boite quick
+		// correction de la largeur pour correspondre au modèle de boite quick
 		if ($no_width && in_array($balise, array('div', 'fieldset')) && $this->value['position']!='absolute')
 		{
 			$this->value['width'] = $this->getLastWidth();
@@ -998,7 +998,7 @@ class styleHTML
 	}
 	
  	/**
-	 * Rï¿½cupï¿½ration de la hauteur de ligne courante
+	 * Récupération de la hauteur de ligne courante
 	 *
 	 * @return	float	hauteur en mm
 	 */
@@ -1010,7 +1010,7 @@ class styleHTML
 	}
 	
  	/**
-	 * Rï¿½cupï¿½ration de la largeur de l'objet parent
+	 * Récupération de la largeur de l'objet parent
 	 *
 	 * @return	float	largeur
 	 */
@@ -1033,7 +1033,7 @@ class styleHTML
 	}
 
  	/**
-	 * Rï¿½cupï¿½ration de la hauteur de l'objet parent
+	 * Récupération de la hauteur de l'objet parent
 	 *
 	 * @return	float	hauteur
 	 */
@@ -1089,29 +1089,29 @@ class styleHTML
 	}
 	
 	/**
-	 * Rï¿½cupï¿½ration des propriï¿½tï¿½s CSS de la balise en cours
+	 * Récupération des propriétés CSS de la balise en cours
 	 *
-	 * @return	array()		tableau des propriï¿½tï¿½s CSS
+	 * @return	array()		tableau des propriétés CSS
 	 */
 	function getFromCSS()
 	{
-		$styles	= array();	// style ï¿½ appliquer
-		$getit	= array();	// styles ï¿½ rï¿½cuperer
+		$styles	= array();	// style à appliquer
+		$getit	= array();	// styles à récuperer
 
 		// identification des styles direct, et ceux des parents
 		$lst = array();
 		$lst[] = $this->value['id_lst'];
 		for($i=count($this->table)-1; $i>=0; $i--) $lst[] = $this->table[$i]['id_lst'];
 
-		// identification des styles ï¿½ rï¿½cuperer
+		// identification des styles à récuperer
 		foreach($this->css_keys as $key => $num)
 			if ($this->getReccursiveStyle($key, $lst))
 				$getit[$key] = $num;
 
-		// si des styles sont ï¿½ recuperer
+		// si des styles sont à recuperer
 		if (count($getit))
 		{
-			// on les rï¿½cupï¿½re, mais dans l'odre de dï¿½finition, afin de garder les prioritï¿½s
+			// on les récupère, mais dans l'odre de définition, afin de garder les priorités
 			asort($getit);
 			foreach($getit as $key => $val) $styles = array_merge($styles, $this->css[$key]);
 		}
@@ -1120,19 +1120,19 @@ class styleHTML
 	}
 	
 	/**
-	 * Identification des styles ï¿½ rï¿½cuperer, en fonction de la balise et de ses parents
+	 * Identification des styles à récuperer, en fonction de la balise et de ses parents
 	 *
-	 * @param	string		clef CSS ï¿½ analyser
+	 * @param	string		clef CSS à analyser
 	 * @param	array()		tableau des styles direct, et ceux des parents
 	 * @param	string		prochaine etape
-	 * @return	boolean		clef autorisï¿½e ou non
+	 * @return	boolean		clef autorisée ou non
 	 */
 	function getReccursiveStyle($key, $lst, $next = null)
 	{
 		// si propchaine etape, on construit les valeurs
 		if ($next!==null)
 		{
-			if ($next) $key = trim(substr($key, 0, -strlen($next))); // on elï¿½ve cette etape
+			if ($next) $key = trim(substr($key, 0, -strlen($next))); // on elève cette etape
 			unset($lst[0]);
 			if (!count($lst)) return false; // pas d'etape possible
 			$lst = array_values($lst);
@@ -1142,27 +1142,27 @@ class styleHTML
 		foreach($lst[0] as $nom)
 		{
 			if ($key==$nom) return true; // si la clef conrrespond => ok
-			if (substr($key, -strlen(' '.$nom))==' '.$nom && $this->getReccursiveStyle($key, $lst, $nom)) return true; // si la clef est la fin, on analyse ce qui prï¿½cï¿½de
+			if (substr($key, -strlen(' '.$nom))==' '.$nom && $this->getReccursiveStyle($key, $lst, $nom)) return true; // si la clef est la fin, on analyse ce qui précède
 		}
 
-		// si on est pas ï¿½ la premiere etape, on doit analyse toutes les sous etapes
+		// si on est pas à la premiere etape, on doit analyse toutes les sous etapes
 		if ($next!==null && $this->getReccursiveStyle($key, $lst, '')) return true;
 		
-		// aucun style trouvï¿½
+		// aucun style trouvé
 		return false;
 	}
 	
 	/**
-	 * Analyse d'une propriï¿½tï¿½ Border
+	 * Analyse d'une propriété Border
 	 *
-	 * @param	string		propriï¿½tï¿½ border
-	 * @return	array()		propriï¿½tï¿½ dï¿½codï¿½e
+	 * @param	string		propriété border
+	 * @return	array()		propriété décodée
 	 */
 	function readBorder($val)
 	{
 		$none = array('type' => 'none', 'width' => 0, 'color' => array(0, 0, 0));
 
-		// valeurs par dï¿½fault
+		// valeurs par défault
 		$type	= 'solid';
 		$width	= $this->ConvertToMM('1pt');
 		$color	= array(0, 0, 0);
@@ -1337,9 +1337,9 @@ class styleHTML
  	/**
 	 * Convertir une longueur en mm
 	 *
-	 * @param	string			longueur, avec unitï¿½, ï¿½ convertir
+	 * @param	string			longueur, avec unité, à convertir
 	 * @param	float			longueur du parent
-	 * @return	float			longueur exprimï¿½e en mm
+	 * @return	float			longueur exprimée en mm
 	 */
 	function ConvertToMM($val, $old=0.)
 	{
@@ -1375,10 +1375,10 @@ class styleHTML
 	}
 	
  	/**
-	 * Dï¿½composition d'un code couleur HTML
+	 * Décomposition d'un code couleur HTML
 	 *
 	 * @param	string			couleur au format CSS
-	 * @return	array(r, v, b)	couleur exprimï¿½ par ses comporantes R, V, B, de 0 ï¿½ 255.
+	 * @return	array(r, v, b)	couleur exprimé par ses comporantes R, V, B, de 0 à 255.
 	 */
 	function ConvertToColor($val, &$res)
 	{
@@ -1454,7 +1454,7 @@ class styleHTML
 		// on remplace tous les espaces, tab, \r, \n, par des espaces uniques
 		$code = preg_replace('/[\s]+/', ' ', $code);
 
-		// on enlï¿½ve les commentaires
+		// on enlève les commentaires
 		$code = preg_replace('/\/\*.*?\*\//s', '', $code);
 
 		// on analyse chaque style
@@ -1464,7 +1464,7 @@ class styleHTML
 			// noms
 			$noms	= strtolower(trim($match[1][$k]));
 			
-			// style, sï¿½parï¿½ par des; => on remplie le tableau correspondant
+			// style, séparé par des; => on remplie le tableau correspondant
 			$styles	= trim($match[2][$k]);
 			$styles = explode(';', $styles);
 			$stl = array();
@@ -1478,12 +1478,12 @@ class styleHTML
 				}
 			}
 			
-			// dï¿½composition des noms par les ,
+			// décomposition des noms par les ,
 			$noms = explode(',', $noms);
 			foreach($noms as $nom)
 			{
 				$nom = trim($nom);
-				// Si il a une fonction spï¿½cifique, comme :hover => on zap
+				// Si il a une fonction spécifique, comme :hover => on zap
 				if (strpos($nom, ':')!==false) continue;
 				if (!isset($this->css[$nom]))
 					$this->css[$nom] = $stl;
@@ -1515,19 +1515,19 @@ class styleHTML
 		foreach($match[1] as $code)
 		{
 			$tmp = array();
-			// lecture des paramï¿½tres du type nom=valeur
+			// lecture des paramétres du type nom=valeur
 			$prop = '([a-zA-Z0-9_]+)=([^"\'\s>]+)';
 			preg_match_all('/'.$prop.'/is', $code, $match);
 			for($k=0; $k<count($match[0]); $k++)
 				$tmp[trim(strtolower($match[1][$k]))] = trim($match[2][$k]);
 
-			// lecture des paramï¿½tres du type nom="valeur"
+			// lecture des paramétres du type nom="valeur"
 			$prop = '([a-zA-Z0-9_]+)=["]([^"]*)["]';
 			preg_match_all('/'.$prop.'/is', $code, $match);
 			for($k=0; $k<count($match[0]); $k++)
 				$tmp[trim(strtolower($match[1][$k]))] = trim($match[2][$k]);
 
-			// lecture des paramï¿½tres du type nom='valeur'
+			// lecture des paramétres du type nom='valeur'
 			$prop = "([a-zA-Z0-9_]+)=[']([^']*)[']";
 			preg_match_all('/'.$prop.'/is', $code, $match);
 			for($k=0; $k<count($match[0]); $k++)
