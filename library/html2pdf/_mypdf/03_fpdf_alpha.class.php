@@ -35,7 +35,7 @@ if (!defined('__CLASS_FPDF_ALPHA__'))
 				//First use of image, get info
 				if($type=='')
 				{
-					/* MODIFICATION HTML2PDF pour le support des images gï¿½nï¿½rï¿½es */
+					/* MODIFICATION HTML2PDF pour le support des images générées */
 					$type = explode('?', $file);
 					$type = pathinfo($type[0]);
 					if (!isset($type['extension']) || !$type['extension'])
@@ -53,7 +53,7 @@ if (!defined('__CLASS_FPDF_ALPHA__'))
 				}
 				$type=strtolower($type);
 
-				/* MODIFICATION HTML2PDF pour le support des images gï¿½nï¿½rï¿½es */
+				/* MODIFICATION HTML2PDF pour le support des images générées */
 				if ($type=='php' || $type=='cgi')
 				{
 					// identification des infos
