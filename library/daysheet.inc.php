@@ -123,7 +123,7 @@ function array_natsort($aryData, $strIndex, $strSortBy, $strSortType=false) {
               //---------------------------------------------------------
               elseif(strpos($criteria_value,"form_encounter.encounter")!== false)
                {//comes like '781,780'
-                $SplitArray=split(" = '",$criteria_value);//comes like 781,780'
+                $SplitArray=explode(" = '",$criteria_value);//comes like 781,780'
                 $SplitArray[1]=substr($SplitArray[1], 0, -1);//comes like 781,780
                 $query_part .= ' AND form_encounter.encounter in ('.$SplitArray[1].')';
                }
