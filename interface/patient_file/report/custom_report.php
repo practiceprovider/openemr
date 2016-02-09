@@ -783,7 +783,8 @@ foreach ($ar as $key => $val) {
                 $couch_revid = $d->get_couch_revid();
                 $extension = substr($fname, strrpos($fname,"."));
                 echo "<h1>" . xl('Document') . " '" . $fname ."'</h1>";
-                $notes = Note::notes_factory($d->get_id());
+                $n = new Note();
+                $notes = $n->notes_factory($d->get_id());
                 if (!empty($notes)) echo "<table>";
                 foreach ($notes as $note) {
                     echo '<tr>';

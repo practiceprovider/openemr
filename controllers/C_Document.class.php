@@ -39,6 +39,7 @@ class C_Document extends Controller {
 		$t = new CategoryTree(1);
 		//print_r($t->tree);
 		$this->tree = $t;
+		$this->Document = new Document();
 	}
 	
 	function upload_action($patient_id,$category_id) {
@@ -597,7 +598,7 @@ class C_Document extends Controller {
 				if (is_file($file) && strpos(basename($file),".") !== 0) {
 					$file_info['filename'] = basename($file);
 					$file_info['mtime'] = date("m/d/Y H:i:s",filemtime($file));
-					$d = Document::document_factory_url("file://" . $file);
+					$d = $this->Document->document_factory_url("file://" . $file);
 					preg_match("/^([0-9]+)_/",basename($file),$patient_match);
 					$file_info['patient_id'] = $patient_match[1];
 					$file_info['document_id'] = $d->get_id();

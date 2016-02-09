@@ -3,7 +3,7 @@
  * Logiciel : HTML2PDF - classe ParsingHTML
  *
  * Convertisseur HTML => PDF
- * Distribuï¿½ sous la licence LGPL. 
+ * Distribué sous la licence LGPL.
  *
  * @author		Laurent MINGUET <webmaster@html2pdf.fr>
  * @version		3.31
@@ -11,11 +11,11 @@
 
 class parsingHTML
 {
-	var $html		= '';				// code HTML ï¿½ parser
-	var $num		= 0;				// numï¿½ro de table
+	var $html		= '';				// code HTML à parser
+	var $num		= 0;				// numéro de table
 	var $level		= 0;				// niveaux de table
 	var $encoding	= '';				// encodage
-	var $code		= array();			// code HTML parsï¿½
+	var $code		= array();			// code HTML parsé
 	
 	/**
 	 * Constructeur
@@ -29,6 +29,7 @@ class parsingHTML
 		$this->html		= '';
 		$this->code		= array();
 		$this->setEncoding($encoding);
+		$this->HTML2PDF = new HTML2PDF();
 	}
 	
 	function setEncoding($encoding)
@@ -37,7 +38,7 @@ class parsingHTML
 	}
 	
 	/**
-	 * Dï¿½finir le code HTML ï¿½ parser
+	 * Définir le code HTML à parser
 	 *
 	 * @param	string code html
 	 * @return	null
@@ -61,7 +62,7 @@ class parsingHTML
 		$tmp = array();
 		$this->searchCode($tmp);
 		
-		// identifier les balises une ï¿½ une
+		// identifier les balises une à une
 		$pre_in = false;
 		$pre_br = array(
 					'name' => 'br',
@@ -94,9 +95,9 @@ class parsingHTML
 						if ($res['close'])
 						{
 							if (count($parents)<1)
-								HTML2PDF::makeError(3, __FILE__, __LINE__, $res['name'], $this->getHtmlErrorCode($res['html_pos']));
+								$this->HTML2PDF->makeError(3, __FILE__, __LINE__, $res['name'], $this->getHtmlErrorCode($res['html_pos']));
 							else if ($parents[count($parents)-1]!=$res['name'])
-								HTML2PDF::makeError(4, __FILE__, __LINE__, $parents, $this->getHtmlErrorCode($res['html_pos']));
+								$this->HTML2PDF->makeError(4, __FILE__, __LINE__, $parents, $this->getHtmlErrorCode($res['html_pos']));
 							else
 								unset($parents[count($parents)-1]);
 						}
@@ -158,7 +159,7 @@ class parsingHTML
 			}	
 		}
 
-		// pour chaque action identifiï¿½e, il faut nettoyer le dï¿½but et la fin des textes
+		// pour chaque action identifiée, il faut nettoyer le début et la fin des textes
 		// en fonction des balises qui l'entourent.
 		$balises_clean = array('page', 'page_header', 'page_footer', 'form',
 								'table', 'thead', 'tfoot', 'tr', 'td', 'th', 'br',
@@ -172,11 +173,11 @@ class parsingHTML
 			//si c'est un texte
 			if ($todos[$k]['name']=='write')
 			{
-				// et qu'une balise spï¿½cifique le prï¿½cï¿½de => on nettoye les espaces du dï¿½but du texte
+				// et qu'une balise spécifique le précède => on nettoye les espaces du début du texte
 				if ($k>0 && in_array($todos[$k-1]['name'], $balises_clean))
 					$todos[$k]['param']['txt'] = ltrim($todos[$k]['param']['txt']);
 
-				// et qu'une balise spï¿½cifique le suit => on nettoye les espaces de la fin du texte
+				// et qu'une balise spécifique le suit => on nettoye les espaces de la fin du texte
 				if ($k<$nb-1 && in_array($todos[$k+1]['name'], $balises_clean))
 					$todos[$k]['param']['txt'] = rtrim($todos[$k]['param']['txt']);
 				
@@ -184,7 +185,7 @@ class parsingHTML
 					unset($todos[$k]);
 			}
 		}
-		if (count($parents)) HTML2PDF::makeError(5, __FILE__, __LINE__, $parents);
+		if (count($parents)) $this->HTML2PDF->makeError(5, __FILE__, __LINE__, $parents);
 
 		// liste des actions sauvï¿½e
 		$this->code = array_values($todos);

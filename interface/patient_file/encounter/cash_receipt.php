@@ -241,7 +241,8 @@ $encounter . "' and pid='$pid'"))
      $fname = basename($d->get_url());
      $extension = substr($fname, strrpos($fname,"."));
      echo "Document '" . $fname ."'<br>";
-     $notes = Note::notes_factory($d->get_id());
+     $n = new Note();
+     $notes = $n->notes_factory($d->get_id());
      echo "<table>";
      foreach ($notes as $note) {
       echo '<tr>';
