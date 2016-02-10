@@ -445,7 +445,7 @@ function timestamp_to_iso8601($timestamp,$utc=true){
 		'([0-9]{2})(\.[0-9]*)?'. // seconds ss.ss...
 		'(Z|[+\-][0-9]{2}:?[0-9]{2})?'; // Z to indicate UTC, -/+HH:MM:SS.SS... for local tz's
 
-		if(preg_match("/" . $eregStr . "/",$datestr,$regs)){
+		if(preg_match("/" . addcslashes($eregStr, '/') . "/",$datestr,$regs)){
 			return sprintf('%04d-%02d-%02dT%02d:%02d:%02dZ',$regs[1],$regs[2],$regs[3],$regs[4],$regs[5],$regs[6]);
 		}
 		return false;
@@ -470,7 +470,7 @@ function iso8601_to_timestamp($datestr){
 	'([0-9]{2}):'.	// minutes mm:
 	'([0-9]{2})(\.[0-9]+)?'. // seconds ss.ss...
 	'(Z|[+\-][0-9]{2}:?[0-9]{2})?'; // Z to indicate UTC, -/+HH:MM:SS.SS... for local tz's
-	if(preg_match("/" . $eregStr . "/",$datestr,$regs)){
+	if(preg_match("/" . addcslashes($eregStr, '/') . "/",$datestr,$regs)){
 		// not utc
 		if($regs[8] != 'Z'){
 			$op = substr($regs[8],0,1);
@@ -3397,7 +3397,7 @@ class soap_parser extends nusoap_base {
 				[6]    nextDimension    ::=    Digit+ ','
 				*/
 				$expr = '([A-Za-z0-9_]+):([A-Za-z]+[A-Za-z0-9_]+)\[([0-9]+),?([0-9]*)\]';
-				if(preg_match("/" . $expr . "/",$value,$regs)){
+				if(preg_match("/" . addcslashes($expr, '/') . "/",$value,$regs)){
 					$this->message[$pos]['typePrefix'] = $regs[1];
 					$this->message[$pos]['arraySize'] = $regs[3];
 					$this->message[$pos]['arrayCols'] = $regs[4];

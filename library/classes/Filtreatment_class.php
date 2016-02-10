@@ -174,12 +174,12 @@ function ft_email($email) {
     $local_array = explode(".", $email_array[0]);
 
     for ($i = 0; $i < sizeof($local_array); $i++) {
-        if ( !preg_match("/^(([A-Za-z0-9!#$%&'*+/=?^_`{|}~-][A-Za-z0-9!#$%&'*+/=?^_`{|}~\\.-]{0,63})|(\"[^(\\|\")]{0,62}\"))$/", $local_array[$i]) ) {
+        if ( !preg_match("/^(([A-Za-z0-9!#$%&'*+/=?^_`{|}~-][A-Za-z0-9!#$%&'*+\/=?^_`{|}~\.-]{0,63})|(\\"[^(\\ | \\")]{0,62}\\"))$/", $local_array[$i]) ) {
              return FALSE;
         }
     }
 
-    if (!preg_match("/^\\[?[0-9\\.]+\\]?$/", $email_array[1])) {
+    if (!preg_match("/^\[?[0-9\.]+\]?$/", $email_array[1])) {
     // verify if domain is IP. If not, it must be a valid domain name 
         $domain_array = explode(".", $email_array[1]);
         if (sizeof($domain_array) < 2) { return FALSE; }

@@ -11,8 +11,7 @@ if (!$thisauth) {
  }
 
 function check_pattern ($data,$pat) {
-    $pat = preg_quote($pat, '/');
-	if (preg_match("/" . $pat . "/", $data)) { return TRUE ; } else { RETURN FALSE; }
+	if (preg_match("/" . addcslashes($pat, '/') . "/", $data)) { return TRUE ; } else { RETURN FALSE; }
 }
 
 // Function to insert/modify items in the language log table, lang_custom
