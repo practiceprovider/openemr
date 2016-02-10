@@ -11,6 +11,7 @@ if (!$thisauth) {
  }
 
 function check_pattern ($data,$pat) {
+    $pat = preg_quote($pat, '/');
 	if (preg_match("/" . $pat . "/", $data)) { return TRUE ; } else { RETURN FALSE; }
 }
 
