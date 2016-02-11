@@ -322,7 +322,7 @@
 				{
 					// we have an I4, INT or a DOUBLE
 					// we must check that only 0123456789-.<space> are characters here
-					if (!preg_match("/^\\-?[0123456789 \\t\\.]+$/", $_xh[$parser]['ac']))
+					if (!preg_match("/^\-?[0123456789 \t\.]+$/", $_xh[$parser]['ac']))
 					{
 						// TODO: find a better way of throwing an error
 						// than this!
@@ -367,7 +367,7 @@
 				$_xh[$parser]['params'][]=$_xh[$parser]['st'];
 				break;
 			case 'METHODNAME':
-				$_xh[$parser]['method']=preg_replace("/^[\\n\\r\\t ]+/", '', $_xh[$parser]['ac']);
+				$_xh[$parser]['method']=preg_replace("/^[\n\r\t ]+/", '', $_xh[$parser]['ac']);
 				break;
 			case 'BOOLEAN':
 				// special case here: we translate boolean 1 or 0 into PHP
@@ -944,7 +944,7 @@
 			}
 			// see if we got an HTTP 200 OK, else bomb
 			// but only do this if we're using the HTTP protocol.
-			if(preg_match("/^HTTP/",$data) && !preg_match("/^HTTP/[0-9\\.]+ 200 /", $data))
+			if(preg_match("/^HTTP/",$data) && !preg_match("/^HTTP/[0-9\.]+ 200 /", $data))
 			{
 				$errstr= substr($data, 0, strpos($data, "\n")-1);
 				error_log('HTTP error, got response: ' .$errstr);

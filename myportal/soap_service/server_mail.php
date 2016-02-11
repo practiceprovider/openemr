@@ -36,15 +36,10 @@ $fake_register_globals=false;
 
 class UserMail {
 
-  public function __construct()
-  {
-    $this->UserService = new UserService();
-  }
-
 
   public function getMails($data){
     global $pid;
-    if($this->UserService->valid($data[0])=='existingpatient'){
+    if(UserService::valid($data[0])=='existingpatient'){
       require_once("../../library/pnotes.inc");
       if($data[2] == "inbox"){
         if($data[3] && $data[4]){
@@ -75,7 +70,7 @@ class UserMail {
 
 
   public function getMailDetails($data){
-    if($this->UserService->valid($data[0])=='existingpatient'){
+    if(UserService::valid($data[0])=='existingpatient'){
       require_once("../../library/pnotes.inc");
       $result = getPnoteById($data[1]);
       if($result['assigned_to'] == '-patient-' && $result['message_status'] == 'New'){
@@ -93,7 +88,7 @@ class UserMail {
 
   public function sendMail($data){
 	global $pid;
-    if($this->UserService->valid($data[0])=='existingpatient'){
+    if(UserService::valid($data[0])=='existingpatient'){
       require_once("../../library/pnotes.inc");
       $to_list = explode(';',$data[2]);
       foreach($to_list as $to){
@@ -110,7 +105,7 @@ class UserMail {
 
 
   public function updateStatus($data){
-    if($this->UserService->valid($data[0])=='existingpatient'){
+    if(UserService::valid($data[0])=='existingpatient'){
       require_once("../../library/pnotes.inc");
       foreach($data[1] as $id){
         updatePnoteMessageStatus($id,$data[2]);

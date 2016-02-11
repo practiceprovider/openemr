@@ -38,8 +38,8 @@ class Userforms extends UserAudit{
 
 
 
-	public function issue_type($data){
-	if($this->UserService->valid($data[0])=='existingpatient'){
+  public function issue_type($data){
+	if(UserService::valid($data[0])=='existingpatient'){
 	global $ISSUE_TYPES;
 	require_once("../../library/lists.inc");
 	return $ISSUE_TYPES;
@@ -53,7 +53,7 @@ class Userforms extends UserAudit{
 
   public function print_report($data){
 	global $pid;
-	if($this->UserService->valid($data[0])=='existingpatient'){
+	if(UserService::valid($data[0])=='existingpatient'){
 	$repArr = $data[1];
 	$type = $data[3];
 	global $ISSUE_TYPES;
@@ -95,7 +95,7 @@ class Userforms extends UserAudit{
 
 
   public function print_ccr_report($data){
-	if($this->UserService->valid($data[0])=='existingpatient'){
+	if(UserService::valid($data[0])=='existingpatient'){
 	$ccraction = $data[1];
 	$raw = $data[2];
 	require_once("../../ccr/createCCR.php");
@@ -325,7 +325,7 @@ class Userforms extends UserAudit{
 		$total = 0.00;
 		$copays = 0.00;
 		foreach ($ar['newpatient'] as $be) {
-		    $ta = explode(":",$be);
+		    $ta = split(":",$be);
 		    $billing = getPatientBillingEncounter($pid,$ta[1]);
 		    $billings[] = $billing;
 		    foreach ($billing as $b) {
@@ -439,7 +439,7 @@ class Userforms extends UserAudit{
 	  global $pid;
 	  global $server_url;
         
-	  if ($this->UserService->valid($data[0])=='existingpatient') {
+	  if (UserService::valid($data[0])=='existingpatient') {
 		if ($this->checkModuleInstalled($moduleName = 'Carecoordination')) {
 		  $site_id = $data[0][0];
 		  try {
@@ -530,7 +530,7 @@ class Userforms extends UserAudit{
     public function getEventLog($data)
     {
       global $pid;
-	  if ($this->UserService->valid($data[0])=='existingpatient') {
+	  if (UserService::valid($data[0])=='existingpatient') {
 		$date1 = $data['start_date'];
 		$date2 = $data['end_date'];
 		$keyword = $data['keyword'];
@@ -593,7 +593,7 @@ class Userforms extends UserAudit{
         $requested_by = $data['requested_by'];
         $xml_type = $data['xml_type'];
        
-        if ($this->UserService->valid($data[0])=='existingpatient') {
+        if (UserService::valid($data[0])=='existingpatient') {
                         
         try {
             $_SESSION['authProvider'] = 1;

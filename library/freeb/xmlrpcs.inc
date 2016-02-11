@@ -437,7 +437,7 @@
 			//fwrite($f,"Got this:\n" . print_r($m,true) . "\n");
 			
 			
-			$sysCall = preg_match("/^system\\./", $methName);
+			$sysCall = preg_match("/^system\./", $methName);
 			$dmap = $sysCall ? $_xmlrpcs_dmap : $this->dmap;
 			//print_r($dmap);
 			if (!isset($dmap[$methName]['function']))
