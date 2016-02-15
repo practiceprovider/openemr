@@ -104,13 +104,14 @@ $(document).ready(function() {
  });
 
  // OnClick handler for the rows
- $('#pt_table tbody tr').live('click', function () {
+ $('#pt_table tbody tr').live('click', function () {     
   // ID of a row element is pid_{value}
   var newpid = this.id.substring(4);
   // If the pid is invalid, then don't attempt to set 
   // The row display for "No matching records found" has no valid ID, but is
   // otherwise clickable. (Matches this CSS selector).  This prevents an invalid
   // state for the PID to be set.
+     
   if (newpid.length===0)
   {
       return;
@@ -121,7 +122,7 @@ $(document).ready(function() {
   else {
    top.restoreSession();
 <?php if ($GLOBALS['concurrent_layout']) { ?>
-   document.location.href = "../../patient_file/summary/demographics.php?set_pid=" + newpid;
+   document.location.href = "../../patient_file/summary/demographics.php?home&set_pid=" + newpid;
 <?php } else { ?>
    top.location.href = "../../patient_file/patient_file.php?set_pid=" + newpid;
 <?php } ?>
@@ -144,7 +145,7 @@ function openNewTopWindow(pid) {
 <div id="dynamic"><!-- TBD: id seems unused, is this div required? -->
 
 <!-- Class "display" is defined in demo_table.css -->
-<table cellpadding="0" cellspacing="0" border="0" class="display" id="pt_table">
+<table cellpadding="0" cellspacing="0" border="0" class="display table table-striped table-bordered" id="pt_table">
  <thead>
   <tr>
 <?php echo $header0; ?>

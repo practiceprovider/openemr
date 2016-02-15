@@ -127,7 +127,7 @@ use ESign\Api;
   'new' => array(xl('New Pt')    , 0, 'new/new.php'),
   'ped' => array(xl('Patient Education'), 0, 'reports/patient_edu_web_lookup.php'),
   'lab' => array(xl('Check Lab Results')  , 0, 'orders/lab_exchange.php'),
-  'dem' => array(xl('Patient')   , 1,  "patient_file/summary/demographics.php"),
+  'dem' => array(xl('Patient')   , 1,  "patient_file/summary/demographics.php?home"),
   'his' => array(xl('History')   , 1, 'patient_file/history/history.php'),
   'ens' => array(xl('Visit History'), 1, 'patient_file/history/encounters.php'),
   'nen' => array(xl('Create Visit'), 1, 'forms/newpatient/new.php?autoloaded=1&calenc='),
@@ -444,7 +444,6 @@ function genFindBlock() {
   var rows = f.cb_top.checked ? '*' :  '0';
   rows += f.cb_bot.checked ? ',*' : ',0';
   fset.rows = rows;
-  fset.rows = rows;
  }
 
  // Load the specified url into the specified frame (RTop or RBot).
@@ -460,7 +459,7 @@ function genFindBlock() {
  // Load the specified url into a frame to be determined, with the specified
  // frame as the default; the url must be relative to interface.
  function loadFrame2(fname, frame, url) {
-  var usage = fname.substring(3);
+     var usage = fname.substring(3);
   if (active_pid == 0 && usage > '0') {
    alert('<?php xl('You must first select or add a patient.','e') ?>');
    return false;
@@ -779,10 +778,11 @@ function clearactive() {
  // patient-specific information from the previous patient.  frname is the name
  // of the frame that the call came from, so we know to only reload content
  // from the *other* frame if it is patient-specific.
- function setPatient(pname, pid, pubpid, frname, str_dob) {
+ function setPatient(pname, pid, pubpid, frname, str_dob) {        
   var str = '<a href=\'javascript:;\' onclick="parent.left_nav.loadCurrentPatientFromTitle()" title="PID = ' + pid + '"><b>' + pname + ' (' + pubpid + ')<br /></b></a>';
   setDivContent('current_patient', str);
   setTitleContent('current_patient', str + str_dob);
+     
   if (pid == active_pid) return;
   setDivContent('current_encounter', '<b><?php xl('None','e'); ?></b>');
   active_pid = pid;
@@ -826,7 +826,7 @@ function clearactive() {
 
 function loadCurrentPatientFromTitle() {
     top.restoreSession();
-    top.frames['RTop'].location='../patient_file/summary/demographics.php';
+    top.frames['RTop'].location='../patient_file/summary/demographics.php?home';
 }
 
 function getEncounterTargetFrame( name ) {
@@ -895,7 +895,7 @@ function isEncounterLocked( encounterId ) {
 
  function loadCurrentEncounterFromTitle() {
       top.restoreSession();
-      top.frames[ parent.left_nav.getEncounterTargetFrame('enc') ].location='../patient_file/encounter/encounter_top.php';
+      top.frames[ parent.left_nav.getEncounterTargetFrame('enc') ].location='../patient_file/encounter/encounter_top' + '.php';
  }
 
  // You must call this if you delete the active patient (or if for any other
@@ -1642,7 +1642,7 @@ if (!empty($reg)) {
       <?php if (acl_check('patients','docs')) genMiscLink('RTop','adm','0',xl('Document Templates'),'super/manage_document_templates.php'); ?>
     </ul>
   </li>
-
+  
 <?php } // end not athletic team ?>
 
 </ul>
