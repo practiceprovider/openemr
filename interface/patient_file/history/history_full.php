@@ -224,7 +224,6 @@ div.tab {
 
 </head>
 <body class="body_top">
-
 <?php
 $result = getHistoryData($pid);
 if (!is_array($result)) {

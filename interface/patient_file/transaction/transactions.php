@@ -48,6 +48,10 @@ include_once("$srcdir/transactions.inc");
 </head>
 
 <body class="body_top">
+<p>
+     <?php include('../pills.php'); ?>                       
+</p>
+    
     <table>
     <tr>
         <td>
