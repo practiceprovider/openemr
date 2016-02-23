@@ -780,21 +780,48 @@ a.disabled_button:hover {
  * TABS
 */
 
-/*ul.tabNav { margin: 0; padding: 0; }
-ul.tabNav { float: left; list-style: none; width: 100%; }
-ul.tabNav li { float: left; margin: 0 1px 0 0; padding: 6px 0 0;
+ul.tabNav {
+  margin: 0;
+  padding: 0;
+}
+
+ul.tabNav {
+  float: left;
+  list-style: none;
+  width: 100%;
+}
+
+ul.tabNav li {
+  float: left;
+  margin: 0 1px 0 0;
+  padding: 6px 0 0;
   font-size: 0.8em;
   vertical-align: bottom;
   text-align: left;
 }
-ul.tabNav li.current { padding-top: 0;
+
+ul.tabNav li.current {
+  padding-top: 0;
   font-weight: bold;
   font-size: 0.8em;
   vertical-align: bottom;
   text-align: left;
 }
-ul.tabNav a { background:#A7A7A7; border: 1px solid #ffffff; border-width: 1px 1px 0; color: #333; display: block; padding: 4px 4px 5px 4px; text-decoration: none; }
-ul.tabNav li.current a { background:#FFFFFF ;padding: 8px; }*/
+
+ul.tabNav a {
+  background: #A7A7A7;
+  border: 1px solid #ffffff;
+  border-width: 1px 1px 0;
+  color: #333;
+  display: block;
+  padding: 4px 4px 5px 4px;
+  text-decoration: none;
+}
+
+ul.tabNav li.current a {
+  background: #FFFFFF;
+  padding: 8px;
+}
 
 @import "bootstrap/css/font-awesome.min.css";
 
@@ -1960,6 +1987,7 @@ input[type="textbox"] {
 .calendar thead .title {
   border: 1px solid darken($silverColor, 20%);
   background: $silverColor !important;
+  color: #000 !important;
 }
 
 .calendar .button,
@@ -2030,6 +2058,10 @@ tr.tableHead-bg td:first-child {
 
 .rule_detail .section.text {
   box-shadow: none;
+  margin-bottom: 10px !important;
+  padding: 15px 5px;
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
 }
 
 div#groupdetail {
@@ -2224,4 +2256,125 @@ li.encounter-form-category-li > a::after {
   margin-left: 5px;
   color: #000;
   content: "\f0d7";
+}
+
+.top-nav {
+  background: #D0D1D2;
+}
+
+.title a {
+  color: #2A6497;
+  font-size: 16px;
+  border-bottom: 1px dotted;
+  font-weight: bold;
+}
+
+.patient-pills {
+  border-bottom: 2px solid #265a88;
+  padding-bottom: 3px;
+}
+
+.css_button_link a {
+  border-radius: 5px 5px 0 0 !important;
+}
+
+.rule_row {
+  padding-bottom: 13px !important;
+  margin-left: 15px;
+  padding-top: 13px;
+  border-bottom: 1px solid #C5CAC5 !important;
+  clear: both;
+  height: auto;
+}
+
+.rule_container .rule_row:first-child {
+  border-bottom: 0 !important;
+}
+
+.rule_type a {
+  @extend .btn-submit;
+  color: #fff;
+  padding: 5px 25px !important;
+  border-radius: 5px !important;
+}
+
+.rule_type a:hover {
+  text-decoration: underline !important;
+}
+
+#search_options {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.ccr-table input[type="text"],
+.ccr-table #img_start,
+.ccr-table #img_end {
+  display: inline-block;
+}
+
+.tab-textLeft {
+  text-align: left;
+}
+
+.header .action_link {
+  @extend .btn-primary;
+  padding: 5px 15px !important;
+  border-radius: 5px;
+}
+
+a#clear_active {
+  background: #CFE7FB;
+  margin-left: 5px;
+}
+
+a#clear_active span {
+  color: #2A68A0;
+}
+
+#RTop {
+  resize: vertical;
+}
+
+.payment-window input[type='radio'] {
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.payment-window .input[name="form_paytotal"] {
+  width: 55px !important;
+}
+
+#HIS ul.tabNav > li > a {
+  padding: 4px 15px !important;
+}
+
+#HIS ul.tabNav > li.active > a {
+  padding-top: 5px !important;
+  margin-top: -4px !important;
+}
+
+.globalsTabs .tabNav li.current a {
+  padding-top: 13px !important;
+}
+
+.title-custom {
+  padding: 12px !important;
+  font-size: 18px !important;
+  background: #3175B0 !important;
+}
+
+.title-custom b {
+  color: #fff !important;
+
+}
+
+#dynamic {
+  padding-top: 15px !important;
+}
+
+form[name="new_encounter"] {
+  padding-top: 25px !important;
+  padding-left: 15px !important;
 }
