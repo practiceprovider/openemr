@@ -11436,7 +11436,6 @@ tr.search.no-bg input {
 .section-header ~ div.notab,
 .section-header-dynamic ~ div.summary_item,
 .section-header ~ div.summary_item small {
-  box-shadow: 1px 1px 2px #000;
   clear: both;
   display: block;
   padding: 5px 5px 0;
