@@ -132,7 +132,7 @@ if (empty($task) || $task=="add" || $task=="delete") {
 
 ?>
 
-    <ul class="nav-sm nav-pills-sm">
+    <ul class="tabNav">
         <?php echo $show_all . xlt('Show All') ?></span></a><span class="css_button_separator">&nbsp;|&nbsp;</span></li>
         <?php echo $show_active . xlt('Show Active') ?></span></a><span class="css_button_separator">&nbsp;|&nbsp;</span></li>
         <?php echo $show_inactive . xlt('Show Inactive') ?></span></a></li>

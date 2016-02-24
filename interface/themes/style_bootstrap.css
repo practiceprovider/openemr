@@ -11500,7 +11500,7 @@ li.encounter-form-category-li > a::after {
   border-bottom: 2px solid #265a88;
   padding-bottom: 3px; }
 
-.css_button_link a, .small a {
+div.patient-pills .css_button_link a, div.patient-pills .small a {
   border-radius: 5px 5px 0 0 !important; }
 
 .rule_row {
