@@ -11582,4 +11582,8 @@ form[name="new_encounter"] {
   padding-top: 25px !important;
   padding-left: 15px !important; }
 
+#pt_table > tbody > tr:hover {
+  cursor: pointer;
+  border: 2px solid #2A6497; }
+
 /*# sourceMappingURL=style_bootstrap.css.map */
