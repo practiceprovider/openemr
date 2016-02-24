@@ -1403,15 +1403,15 @@ li.current {
 }
 
 .tabNav a {
-  @extend .btn-custom;
+  //@extend .btn-custom;
   //    background-color: hsl(191, 94%, 31%) !important;
-  color: #fff;
+  color: #000;
 }
 
 .tabNav li.active a,
 .tabNav li.active:focus a,
 .tabNav li.active:hover a {
-  color: #fff;
+  color: #000;
   border-bottom: 3px solid #000 !important
 }
 
