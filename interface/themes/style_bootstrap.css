@@ -11580,6 +11580,9 @@ a#clear_active span {
 .title-custom b {
   color: #fff !important; }
 
+.title-custom a {
+  color: #A9C4DA; }
+
 #dynamic {
   padding-top: 15px !important; }
 
