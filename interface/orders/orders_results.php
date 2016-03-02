@@ -38,7 +38,7 @@ if ($_GET['set_pid'] && $form_review) {
   $result = getPatientData($pid, "*, DATE_FORMAT(DOB,'%Y-%m-%d') as DOB_YMD");
   ?>
   <script language='JavaScript'>
-    parent.left_navsetPatient(<?php echo "'" . addslashes($result['fname']) . " " . addslashes($result['lname']) . "',$pid,'" . addslashes($result['pubpid']) . "','', ' " . xl('DOB') . ": " . oeFormatShortDate($result['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($result['DOB_YMD']) . "'"; ?>);
+    parent.left_nav.setPatient(<?php echo "'" . addslashes($result['fname']) . " " . addslashes($result['lname']) . "',$pid,'" . addslashes($result['pubpid']) . "','', ' " . xl('DOB') . ": " . oeFormatShortDate($result['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($result['DOB_YMD']) . "'"; ?>);
     parent.left_nav.setRadio(window.name, 'orp');
   </script>
   <?php
@@ -289,7 +289,7 @@ function validate(f) {
 </head>
 
 <body class="body_top">
-<p class="title title-custom"><b>Batch Results</b></p>
+<p class="title title-custom"><b><?php echo xlt("Batch Results"); ?></b></p>
 <form method='post' action='orders_results.php?batch=<?php echo $form_batch; ?>&review=<?php echo $form_review; ?>'
  onsubmit='return validate(this)'>
 
