@@ -684,7 +684,7 @@ function pnVarPrepHTMLDisplay()
     // Note that the use of \024 and \022 are needed to ensure that
     // this does not break HTML tags that might be around either
     // the username or the domain name
-    static $search = array('/([^\024])@([^\022])/se');
+    static $search = array('/([^\024])@([^\022])/s');
 
     static $replace = array('"&#" .
                             sprintf("%03d", ord("\\1")) .
@@ -719,7 +719,7 @@ function pnVarPrepHTMLDisplay()
         $ourvar = preg_replace($search, $replace, $ourvar);
 
         // Fix the HTML that we want
-        $ourvar = preg_replace('/\022([^\024]*)\024/e',
+        $ourvar = preg_replace('/\022([^\024]*)\024/',
                                "'<' . strtr('\\1', array('&gt;' => '>',
                                                          '&lt;' => '<',
                                                          '&quot;' => '\"'))
