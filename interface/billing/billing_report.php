@@ -480,27 +480,25 @@ if(!isset($_REQUEST['mode']))//default case
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="15%">&nbsp;</td>
-            <td width="85%"><span class='text'><a onClick="javascript:return SubmitTheScreen();" href="#" class="css_button_small"><?php echo xlt('Update List') ?></a>
+            <td width="85%"><span class='text'><a onClick="javascript:return SubmitTheScreen();" href="#" class="link_submit"><?php echo xlt('[Update List]') ?></a>
    or
-   <a onClick="javascript:return SubmitTheScreenExportOFX();" href="#"  class='css_button_small'><?php echo  xlt('Export OFX')  ?></a></span>               </td>
+   <a onClick="javascript:return SubmitTheScreenExportOFX();" href="#"  class='link_submit'><?php echo  xlt('[Export OFX]')  ?></a></span>               </td>
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td><a onClick="javascript:return SubmitTheScreenPrint();" href="#" 
-    class='css_button_small'  ><?php echo xlt('View Printable Report') ?></a></td>
+            <td><a onClick="javascript:return SubmitTheScreenPrint();" href="#" class='link_submit'  ><?php echo xlt ('[View Printable Report]') ?></a></td>
           </tr>
 		  
 	 <?php if ($daysheet) { ?> 
 		  <tr>
             <td>&nbsp;</td>
-            <td><a onClick="javascript:return SubmitTheEndDayPrint();" href="#" 
-    class='css_button_small'  ><?php echo xlt('End Of Day Report') ?></a>
-	<?php if ($daysheet_total) { ?> 
+            <td><a onClick="javascript:return SubmitTheEndDayPrint();" href="#" class='link_submit'>
+                    <?php echo xlt('[End Of Day Report]') ?></a> <?php if ($daysheet_total) { ?>
 	<span class=text><?php echo xlt('Totals'); ?> </span>
 	<input type=checkbox  name="end_of_day_totals_only" value="1" <?php if ($obj['end_of_day_totals_only'] === '1') echo "checked";?>>
 	<?php } ?>
 	<?php if ($provider_run) { ?> 
-	<span class=text><?php echo xlt('Provider'); ?> </span>
+	<span class=text><?php echo xlt('[Provider]'); ?> </span>
 	<input type=checkbox  name="end_of_day_provider_only" value="1" <?php if ($obj['end_of_day_provider_only'] === '1') echo "checked";?>>
 	<?php } ?>
 	</td>
@@ -517,10 +515,10 @@ if(!isset($_REQUEST['mode']))//default case
                   print '<span class=text><a class="css_button_small" href="javascript:void window.open(\'' . $acct_config['url_path'] . '\')">' . '['. xlt("SQL-Ledger") .']' . '</a> &nbsp; </span>';
                 }
                 if (acl_check('acct', 'rep')) {
-                  print '<span class=text><a class="css_button_small" href="javascript:void window.open(\'sl_receipts_report.php\')" onclick="top.restoreSession()">' .  xlt('Reports') . '</a> &nbsp; </span>';
+                  print '<span class=text><a class="link_submit" href="javascript:void window.open(\'sl_receipts_report.php\')" onclick="top.restoreSession()">' .  xlt('[Reports]') . '</a> &nbsp; </span>';
                 }
                 if (acl_check('acct', 'eob')) {
-                  print '<span class=text><a class="css_button_small" href="javascript:void window.open(\'sl_eob_search.php\')" onclick="top.restoreSession()">' . xlt('EOBs')  . '</a></span>';
+                  print '<span class=text><a class="link_submit" href="javascript:void window.open(\'sl_eob_search.php\')" onclick="top.restoreSession()">' . xlt('[EOBs]')  . '</a></span>';
                 }
               }
             ?>
@@ -535,14 +533,14 @@ if(!isset($_REQUEST['mode']))//default case
                 title="Process all queued bills to create electronic data (and print if requested)"><?php echo  xlt('Start Batch Processing') ?></a>
                &nbsp;
                -->
-               <a href='customize_log.php' onclick='top.restoreSession()' target='_blank' class='css_button_small'
-                title='<?php xla('See messages from the last set of generated claims'); ?>'><?php echo  xlt('View Log') ?></a>
+               <a href='customize_log.php' onclick='top.restoreSession()' target='_blank' class='link_submit'
+                title='<?php xla('See messages from the last set of generated claims'); ?>'><?php echo  xlt('[View Log') ?></a>
             <?php } ?>
             </td>
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td><a href="javascript:select_all()" class="css_button_small"><?php  echo  xlt('Select All') ?></a></td>
+            <td><a href="javascript:select_all()" class="link_submit"><?php  echo  xlt('[Select All]') ?></a></td>
           </tr>
       </table>
 
