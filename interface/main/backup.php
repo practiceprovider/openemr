@@ -131,7 +131,7 @@ if ($form_step == 104) {
 
 <body class="body_top">
 <p class="title title-custom">
-	<b>Backup</b>
+	<b><?php echo xlt("Backup"); ?></b>
 </p>
 <center>
 &nbsp;<br />
