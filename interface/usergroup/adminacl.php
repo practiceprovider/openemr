@@ -195,12 +195,15 @@ if (!isset($phpgacl_location)) {
   	    
   function membership_show() {		
    
-      if( $("#membership").is(':visible')){
-         $("#membership").hide('slow');
-          $('#membership_show').parent().parent().removeClass('arrow-down');           
-          return;
-      }
-    $('#membership_show').parent().parent().addClass('arrow-down');      
+   if( $("#membership").is(':visible')){
+      $("#membership").hide('slow');
+      $('#membership_show').parent().parent().removeClass('arrow-down');
+      $('#membership_show').children(':checkbox').attr('checked', false);
+      return;
+   }
+
+    $('#membership_show').parent().parent().addClass('arrow-down');
+    $('#membership_show').children(':checkbox').attr('checked', true);
     $("#membership_error").empty();
     $("#membership").hide("slow");
     
@@ -243,13 +246,16 @@ if (!isset($phpgacl_location)) {
   }
 		
   function acl_show() {
-   
-      if( $("#acl").is(':visible')){
-         $("#acl").hide('slow');
-          return;
-      }
-      
-      
+    if( $("#acl").is(':visible')) {
+      $("#acl").hide('slow');
+      $('#acl_show').parent().parent().removeClass('arrow-down');
+      $('#acl_show').children(':checkbox').attr('checked', false);
+      return;
+    }
+
+    $('#acl_show').parent().parent().addClass('arrow-down');
+    $('#acl_show').children(':checkbox').attr('checked', true);
+
     $("#acl_error").empty();
     $("#none_acl_returns").hide();
     $("#none_acl_list").hide();
@@ -530,7 +536,7 @@ if (!isset($phpgacl_location)) {
  <div id='membership_edit'>
   <div class="parent">
         <div class="accordionToggle">
-                <span  id='membership_show'><?php xl('User Memberships','e'); ?></span>
+            <span id='membership_show'><input type="checkbox"><?php xl('User Memberships','e'); ?></span>
         </div>
   </div>
    
@@ -545,7 +551,7 @@ if (!isset($phpgacl_location)) {
  <div id='acl_edit'>
   <div class="parent">
      <div class="accordionToggle">
-          <span id='acl_show'><?php xl('Groups and Access Controls','e'); ?></span>
+          <span id='acl_show'><input type="checkbox"><?php xl('Groups and Access Controls','e'); ?></span>
           <a class='link_submit' href='no_javascript' id='none_acl_returns' title=<?php xl('Add New Group','e','\'','\''); ?> style='display: none;'>(<?php xl('Add New Group','e'); ?>)</a>
           <a class='link_submit' href='no_javascript' id='none_acl_list' title=<?php xl('Remove Group','e','\'','\''); ?> style='display: none;'>(<?php xl('Remove Group','e'); ?>)</a>  
           <span class='loading' style='display: none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php xl('LOADING','e'); ?>...</span>

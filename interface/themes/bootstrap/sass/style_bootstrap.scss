@@ -2393,3 +2393,7 @@ form[name="new_encounter"] {
 #MessageList tr td:first-child {
   text-align: center;
 }
+
+#membership_show > input[type=checkbox], #acl_show > input[type=checkbox] {
+  display: none;
+}
