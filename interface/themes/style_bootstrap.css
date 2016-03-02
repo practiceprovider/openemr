@@ -11480,6 +11480,9 @@ tr.search.no-bg input {
   display: inline-block;
   margin-right: 5px; }
 
+.accordionToggle > input[type=checkbox] {
+  display: none; }
+
 div.section, .bottom-panel, .rule_container, .rule_row {
   margin: 0 !important; }
 

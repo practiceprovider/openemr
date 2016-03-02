@@ -2248,6 +2248,10 @@ tr.search.no-bg input {
   margin-right: 5px;
 }
 
+.accordionToggle > input[type=checkbox] {
+  display: none;
+}
+
 div.section {
   margin: 0 !important;
 }

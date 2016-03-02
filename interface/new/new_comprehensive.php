@@ -446,15 +446,18 @@ while ($frow = sqlFetchArray($fres)) {
       $group_name = substr($this_group, 1);
      // if (strlen($last_group) > 0);
      if($varCount==1){
-          echo "<div class=\"parent arrow-down\"><div class=\"accordionToggle\""; 
+          echo "<div class=\"parent arrow-down\"><div class=\"accordionToggle\">";
+          echo "<input type='checkbox' checked>";
      }else{
-          echo "<div class=\"parent\"><div class=\"accordionToggle\""; 
+          echo "<div class=\"parent\"><div class=\"accordionToggle\">";
+          echo "<input type='checkbox'>";
      }
           
         
       // Modified 6-09 by BM - Translate if applicable  
-      echo " >" . xl_layout_label($group_name) . "</div>\n";
-        
+      echo xl_layout_label($group_name) . "</div>\n";
+      //echo " >" . "<input type='checkbox'>" . xl_layout_label($group_name) . "</div>\n";
+
       echo "<div id='div_$group_seq' class='section' style='display:$display_style;'>\n";
       echo " <table border='0' cellpadding='0'>\n";
       $display_style = 'none';
@@ -519,7 +522,7 @@ if (! $GLOBALS['simplified_demographics']) {
 
   echo "<div class=\"parent\"><div class=\"accordionToggle\">";
   if ($display_style == 'block');
-  echo xl('Insurance')."</div>\n";
+  echo "<input type='checkbox'>" . xl('Insurance')."</div>\n";
   echo "<div id='div_ins' class='section' style='display:$display_style;'>\n";
 
   for($i=1;$i<=3;$i++) {
@@ -766,9 +769,16 @@ if (f.form_phone_cell   ) phonekeyup(f.form_phone_cell   ,mypcc);
 // var override = false; // flag that overrides the duplication warning
 
 $(document).ready(function() {
+    /*$(':checkbox').click(function(e) {
+        e.preventDefault();
+    });*/
+
     $('.accordionToggle').click(function(){        
       $(this).siblings().toggle();
       $(this).parent().toggleClass('arrow-down');
+
+      var checkbox = $(this).children(':checkbox');
+      checkbox.attr('checked', $(this).parent().hasClass('arrow-down'));
     });
 enable_modals();
  $(".medium_modal").fancybox( {
