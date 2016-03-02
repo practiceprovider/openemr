@@ -54,7 +54,7 @@ require_once("$srcdir/formatting.inc.php");
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot']; ?>/library/js/jquery.js"></script>
 </head>
 
-<body class="body_top bottom-panel">
+<body class="body_top bottom-panel" id="messages-body">
 
 <span class="title-bigger"><?php echo xlt('Message and Reminder Center'); ?></span>
 <br /><br />
@@ -133,8 +133,8 @@ if (empty($task) || $task=="add" || $task=="delete") {
 ?>
 
     <ul class="tabNav">
-        <?php echo $show_all . xlt('Show All') ?></span></a><span class="css_button_separator">&nbsp;|&nbsp;</span></li>
-        <?php echo $show_active . xlt('Show Active') ?></span></a><span class="css_button_separator">&nbsp;|&nbsp;</span></li>
+        <?php echo $show_all . xlt('Show All') ?></span></a></li>
+        <?php echo $show_active . xlt('Show Active') ?></span></a></li>
         <?php echo $show_inactive . xlt('Show Inactive') ?></span></a></li>
     </ul>
 <?php } ?>
@@ -504,7 +504,7 @@ else {
     }
     // Display the Messages table header.
     echo "
-    <table width=100%><tr><td><table border=0 cellpadding=1 cellspacing=0 width=90%  style=\"border-left: 1px #000000 solid; border-right: 1px #000000 solid; border-top: 1px #000000 solid;\">
+    <table width=100% id='MessageList'><tr><td><table border=0 cellpadding=1 cellspacing=0 width=90%  style=\"border-left: 1px #000000 solid; border-right: 1px #000000 solid; border-top: 1px #000000 solid;\">
     <form name=MessageList action=\"messages.php?showall=".attr($showall)."&sortby=".attr($sortby)."&sortorder=".attr($sortorder)."&begin=".attr($begin)."&$activity_string_html\" method=post>
     <input type=hidden name=task value=delete>
         <tr height=\"24\" class=\"tableHead-bg\" style=\"background:lightgrey\">

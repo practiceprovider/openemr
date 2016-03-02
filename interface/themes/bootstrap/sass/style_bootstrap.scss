@@ -1629,6 +1629,10 @@ form[id="theform"] td {
   padding-top: 15px;
 }
 
+#messages-body {
+  margin: auto 8px !important;
+}
+
 .bottom-panel .title-bigger {
   font-size: 18px;
   display: block;
@@ -1637,7 +1641,6 @@ form[id="theform"] td {
   text-transform: uppercase;
   padding-bottom: 10px;
   font-weight: bold;
-
 }
 
 .pager span,
@@ -2381,4 +2384,8 @@ form[name="new_encounter"] {
 #pt_table > tbody > tr:hover {
   cursor: pointer;
   border: 2px solid $sidebarColor;
+}
+
+#MessageList tr td:first-child {
+  text-align: center;
 }

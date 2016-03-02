@@ -11016,6 +11016,9 @@ form[id="theform"] td {
 .bottom-panel {
   padding-top: 15px; }
 
+#messages-body {
+  margin: auto 8px !important; }
+
 .bottom-panel .title-bigger {
   font-size: 18px;
   display: block;
@@ -11584,5 +11587,8 @@ form[name="new_encounter"] {
 #pt_table > tbody > tr:hover {
   cursor: pointer;
   border: 2px solid #2A6497; }
+
+#MessageList tr td:first-child {
+  text-align: center; }
 
 /*# sourceMappingURL=style_bootstrap.css.map */
