@@ -28,7 +28,7 @@
 <b>
 	<?php echo out( xl( 'Rules Configuration' ) ); ?>	
 
-<a href="index.php?action=browse!plans_config" class="iframe_medium css_button">
+<a href="index.php?action=edit!summary" class="iframe_medium css_button" onclick="top.restoreSession()">
 	<span><?php echo out( xl( 'Add new' ) ); ?></span>
 </a>
 </b>
