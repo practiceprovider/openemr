@@ -151,7 +151,7 @@ $display_collapse_msg = "display:inline;";
 <body class="body_top">
 
 <div>
-	<p class='title title-custom'><b><?php echo text('Lab Documents'); ?>
+	<p class='title-background'><b><?php echo text('Lab Documents'); ?>
    	<span id='docexpand' onclick='expandOrCollapse(1,"doc")' style='cursor:pointer;<?php echo $display_expand_msg ?>'>(expand)</span>
     <span id='doccollapse' onclick='expandOrCollapse(2,"doc")' style='cursor:pointer;<?php echo $display_collapse_msg ?>'>(collapse)</span>
 	</b>

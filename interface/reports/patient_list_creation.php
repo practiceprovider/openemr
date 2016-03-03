@@ -196,7 +196,7 @@
 	<body class="body_top">
 		<!-- Required for the popup date selectors -->
 		<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
-		<p class='title title-custom'>
+		<p class='title-background'>
 		   <b><?php echo xlt('Report - Patient List Creation');?></b>
 		</p>
 		<!-- Search can be done using age range, gender, and ethnicity filters.

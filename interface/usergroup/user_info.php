@@ -39,7 +39,7 @@ function update_password()
 </head>
 <body class="body_top">
 
-    <p class="title title-custom"><b><?php echo xlt('Password Change'); ?></b></p>
+    <p class="title-background"><b><?php echo xlt('Password Change'); ?></b></p>
 
 
 <?php

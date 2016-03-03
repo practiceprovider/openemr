@@ -123,7 +123,7 @@ function msfFileChanged() {
 </head>
 
 <body class="body_top">
-<p class="title title-custom">
+<p class="title-background">
 	<b><?php echo xlt('Edit Files') ?></b>
 </p>
 <form method='post' action='manage_site_files.php' enctype='multipart/form-data'

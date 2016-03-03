@@ -130,7 +130,7 @@ if ($form_step == 104) {
 </head>
 
 <body class="body_top">
-<p class="title title-custom">
+<p class="title-background">
 	<b><?php echo xlt("Backup"); ?></b>
 </p>
 <center>

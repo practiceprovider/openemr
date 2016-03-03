@@ -71,7 +71,7 @@ if (empty($_REQUEST['include_uncat']))
 
 <body class="body_top">
 
-<p class='title title-custom'><b><?php xl('Report','e'); ?> - <?php xl('Services by Category','e'); ?></b></p>
+<p class='title-background'><b><?php xl('Report','e'); ?> - <?php xl('Services by Category','e'); ?></b></p>
 
 <form method='post' action='services_by_category.php' name='theform' id='theform'>
 

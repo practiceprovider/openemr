@@ -425,7 +425,7 @@ function authorized_clicked() {
 
 <div>
     <div>
-        <p class="title-custom"><b><?php xl('User / Groups','e'); ?></b></p>
+        <p class="title-background"><b><?php xl('User / Groups','e'); ?></b></p>
        <table class="table table-striped">
 	  <tr >		
 		<td width="100"><a href="usergroup_admin_add.php" class="iframe_medium css_button"><span><?php xl('Add User','e'); ?></span></a>

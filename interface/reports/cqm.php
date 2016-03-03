@@ -303,7 +303,7 @@ else {
 <!-- Required for the popup date selectors -->
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 
-<p class='title title-custom'><b><?php echo xlt('Report'); ?> - 
+<p class='title-background'><b><?php echo xlt('Report'); ?> - 
 
 <?php if ($type_report == "standard") { ?>
   <?php echo xlt('Standard Measures'); ?>

@@ -94,7 +94,7 @@ $res = sqlStatement($query,$sqlBindArray);
 
 <div id="addressbook_list">
 
-<p class="title title-custom"><b><?php echo xlt('Address Book'); ?></b></p>
+<p class="title-background"><b><?php echo xlt('Address Book'); ?></b></p>
 <form method='post' action='addrbook_list.php' onsubmit='return top.restoreSession()'>
 
 <table class="table table-responsive table-bordered">

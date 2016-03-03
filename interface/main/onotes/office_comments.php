@@ -35,7 +35,7 @@ $N = 10;
 
 <div id="officenotes_list">
 <a href="office_comments_full.php" onclick='top.restoreSession()' <?php if (!$GLOBALS['concurrent_layout']) echo 'target="Main"'; ?>>
-    <p class="title title-custom"><b><?php echo xlt('Office Notes'); ?>
+    <p class="title-background"><b><?php echo xlt('Office Notes'); ?>
 <font class="more"><?php echo text($tmore);?></font></b></p></a>
 
 <br>

@@ -136,7 +136,7 @@ tbody tr.odd {
 </head>
 <body class="body_top" >
 
-<p class="title-custom"><b><?php echo xlt('Pending Approval');?></b></p>
+<p class="title-background"><b><?php echo xlt('Pending Approval');?></b></p>
 
 <form method="post" name="approve" "onsubmit='return top.restoreSession()'" >
 <center>

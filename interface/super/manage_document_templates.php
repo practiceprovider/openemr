@@ -108,7 +108,7 @@ if (!empty($_POST['bn_upload'])) {
 
 
 
-    <p class="title title-custom"><b><?php echo xlt('Document Template Management'); ?></b></p>
+    <p class="title-background"><b><?php echo xlt('Document Template Management'); ?></b></p>
 
 <p>
 <table border='1' width='95%' class="table table-striped table-bordered">

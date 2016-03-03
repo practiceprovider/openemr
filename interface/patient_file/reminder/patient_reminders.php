@@ -79,7 +79,7 @@ if ($mode == "simple") {
 
 <body class='body_top'>
 <div>
-  <p class='title title-custom'>
+  <p class='title-background'>
 	<b><?php echo htmlspecialchars( xl('Patient Reminders'), ENT_NOQUOTES); ?></b>
   </p>
 </div>

@@ -222,7 +222,7 @@ function sel_procedure(e) {
 <body class="body_top">
 <!-- Required for the popup date selectors -->
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
-<p class='title title-custom'>
+<p class='title-background'>
 <b><?php echo htmlspecialchars(xl('Report - Clinical'),ENT_NOQUOTES); ?></b>
 </p>
 <!-- Search can be done using age range, gender, and ethnicity filters.

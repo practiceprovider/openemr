@@ -68,7 +68,7 @@ else { $backurl="../main_info.php"; }
 <a href="<?php echo $backurl; ?>" target="Main">
 <?php } ?>
 
-    <p class="title title-custom"><b><?php echo xlt('Office Notes'); ?>
+    <p class="title-background"><b><?php echo xlt('Office Notes'); ?>
 <span class="back"><?php echo text($tback); ?></span></b></p></a>
 
 <br>

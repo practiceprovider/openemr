@@ -519,7 +519,7 @@ else if ($_POST["mode"] == "download_certificates") {
 
   </head>
   <body class="body_top">
-  <p class='title title-custom'><b><?php xl('SSL Certificate Administration', 'e'); ?></b></p> 
+  <p class='title-background'><b><?php xl('SSL Certificate Administration', 'e'); ?></b></p> 
   </br> </br>   
   <?php if($_SESSION["zip_error"]) { ?>
   <div>  <table align="center" >

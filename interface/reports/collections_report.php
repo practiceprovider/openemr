@@ -323,7 +323,7 @@ function checkAll(checked) {
 
 <body class="body_top">
 
-    <p class='title title-custom'><b><?php echo xlt('Report'); ?> - <?php echo xlt('Collections'); ?></b></p>
+    <p class='title-background'><b><?php echo xlt('Report'); ?> - <?php echo xlt('Collections'); ?></b></p>
 
 <form method='post' action='collections_report.php' enctype='multipart/form-data' id='theform'>
 

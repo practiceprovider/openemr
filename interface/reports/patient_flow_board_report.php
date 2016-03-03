@@ -155,9 +155,9 @@ if ($form_patient == '' ) $form_pid = '';
 <div id="overDiv"
     style="position: absolute; visibility: hidden; z-index: 1000;"></div>
 <?php if ($GLOBALS['drug_screen']) { #setting the title of the page based o if drug screening is enabled ?> 
-<p class='title title-custom'><b><?php echo xlt('Patient Flow Board'); ?> - <?php echo xlt('Drug Screen Report'); ?></b></p>
+<p class='title-background'><b><?php echo xlt('Patient Flow Board'); ?> - <?php echo xlt('Drug Screen Report'); ?></b></p>
 <?php } else { ?>
-    <p class='title title-custom'><b><?php echo xlt('Patient Flow Board Report'); ?></b></p>
+    <p class='title-background'><b><?php echo xlt('Patient Flow Board Report'); ?></b></p>
 <?php } ?>
 
 

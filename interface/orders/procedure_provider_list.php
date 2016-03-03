@@ -75,7 +75,7 @@ function doedclick_edit(ppid) {
 </head>
 
 <body class="body_top">
-<p class="title title-custom"><b><?php echo xlt("Procedures Providers List"); ?></b></p>
+<p class="title-background"><b><?php echo xlt("Procedures Providers List"); ?></b></p>
 <div id="addressbook_list">
 <form method='post' action='procedure_provider_list.php'>
 

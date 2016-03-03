@@ -188,7 +188,7 @@ function postError($msg) {
 
 <body class="body_top">
 
-<p class='title title-custom'><b><?php xl('Report','e'); ?> - <?php xl('Appointments and Encounters','e'); ?></b></p>
+<p class='title-background'><b><?php xl('Report','e'); ?> - <?php xl('Appointments and Encounters','e'); ?></b></p>
 
 <div id="report_parameters_daterange">
 <?php echo date("d F Y", strtotime($form_from_date)) ." &nbsp; to &nbsp; ". date("d F Y", strtotime($form_to_date)); ?>

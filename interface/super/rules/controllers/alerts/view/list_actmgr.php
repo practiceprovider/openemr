@@ -28,7 +28,7 @@ require_once("$phpgacl_location/gacl_api.class.php");
 
 <table class="header">
   <tr>
-        <td class="title title-custom"><b><?php echo out( xl('Clinical Decision Rules Alert Manager') ); ?></b></td>
+        <td class="title-background"><b><?php echo out( xl('Clinical Decision Rules Alert Manager') ); ?></b></td>
         
 
 <table class="header">

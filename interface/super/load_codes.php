@@ -134,7 +134,7 @@ if (!empty($_POST['bn_upload'])) {
 
 
 <p class='text'>
-<p class="title title-custom">
+<p class="title-background">
    <b><?php echo xlt('Install Code Set'); ?></b>
 </p>
 <table border='1' cellpadding='4' class="table table-striped table-bordered">
