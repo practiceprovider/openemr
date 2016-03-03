@@ -19,12 +19,16 @@ $pills = array(
             <td class="small" colspan='4'>
                 <span class="css_button_link">
                     <?php
+                    $i = 0;
                     foreach($pills as $name => $url) {
+                        if ($i > 0) {
+                            echo "<span class='css_button_separator'>&nbsp|&nbsp</span>";
+                        }
+
                         $active = ($page === strtok(basename($url), '?') ? 'active' : 'no');
                         $text = htmlspecialchars(xl($name), ENT_NOQUOTES);
-
                         echo "<a href='$url' onclick='top.restoreSession()' class='$active'>$text</a>";
-                        echo "<span class='css_button_separator'>|</span>";
+                        $i++;
                     }
                     ?>
                 </span>
