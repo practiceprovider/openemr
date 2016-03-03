@@ -111,7 +111,7 @@ $(document).ready(function() {
   // The row display for "No matching records found" has no valid ID, but is
   // otherwise clickable. (Matches this CSS selector).  This prevents an invalid
   // state for the PID to be set.
-     
+
   if (newpid.length===0)
   {
       return;
@@ -122,7 +122,7 @@ $(document).ready(function() {
   else {
    top.restoreSession();
 <?php if ($GLOBALS['concurrent_layout']) { ?>
-   document.location.href = "../../patient_file/summary/demographics.php?home&set_pid=" + newpid;
+   document.location.href = "../../patient_file/summary/demographics.php?set_pid=" + newpid;
 <?php } else { ?>
    top.location.href = "../../patient_file/patient_file.php?set_pid=" + newpid;
 <?php } ?>

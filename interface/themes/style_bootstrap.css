@@ -11600,4 +11600,10 @@ form[name="new_encounter"] {
 #membership_show > input[type=checkbox], #acl_show > input[type=checkbox] {
   display: none; }
 
+div.patient-pills span.css_button_link > a.active, div.patient-pills span.small > a.active {
+  padding: 8px 25px !important;
+  top: -2px;
+  position: relative;
+  border-radius: 5px 5px 0 0 !important; }
+
 /*# sourceMappingURL=style_bootstrap.css.map */
