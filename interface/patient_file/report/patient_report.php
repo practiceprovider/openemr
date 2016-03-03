@@ -60,8 +60,6 @@ function show_date_fun(){
 </head>
 
 <body class="body_top">
-
-<p>&nbsp;</p>    
 <p>
     <?php include('../pills.php'); ?>
 </p>    

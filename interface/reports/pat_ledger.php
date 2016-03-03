@@ -359,10 +359,6 @@ function sel_patient() {
 </script>
 </head>
 <body class="body_top">
-    
-
-<p>&nbsp;</p>    
-<p>
 <?php include('../patient_file/pills.php'); ?>
 </p>
     

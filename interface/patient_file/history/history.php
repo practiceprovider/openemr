@@ -32,7 +32,6 @@ $(document).ready(function(){
 
 </head>
 <body class="body_top">
-    <p>&nbsp;</p>
 <p>
     <?php include('../pills.php'); ?>    
 </p>
