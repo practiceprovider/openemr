@@ -1,15 +1,15 @@
 <?php
 $page = basename($_SERVER['PHP_SELF']);
-$root = '/interface/patient_file/';
+$path = $GLOBALS['webroot'] . '/interface/patient_file/';
 
 $pills = array(
-    'Patient' => $root . 'summary/demographics.php',
-    'History' => $root . 'history/history.php',
-    'Report' => $root . 'report/patient_report.php',
-    'Documents' => $root . "../../controller.php?document&list&patient_id=$pid",
-    'Transactions' => $root . 'transaction/transactions.php',
-    'Issues' => $root . 'summary/stats_full.php?active=all',
-    'Ledger' => $root . "../reports/pat_ledger.php?form=1&patient_id=$pid",
+    'Patient' => $path . 'summary/demographics.php',
+    'History' => $path . 'history/history.php',
+    'Report' => $path . 'report/patient_report.php',
+    'Documents' => $path . "../../controller.php?document&list&patient_id=$pid",
+    'Transactions' => $path . 'transaction/transactions.php',
+    'Issues' => $path . 'summary/stats_full.php?active=all',
+    'Ledger' => $path . "../reports/pat_ledger.php?form=1&patient_id=$pid",
 )
 ?>
 
