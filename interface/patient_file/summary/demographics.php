@@ -644,12 +644,12 @@ expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel,
    xlt('Total Balance Due').
    " : " . text(oeFormatMoney($totalbalance)) .
    "</font></span></td></td></tr>";
-  if ($result['genericname2'] == 'Billing') {
+ if (!empty($result['billing_note'])) {
    echo "<tr><td><span class='bold'><font color='red'>" .
     xlt('Billing Note') . ":" .
-    text($result['genericval2']) .
+    text($result['billing_note']) .
     "</font></span></td></tr>";
-  } 
+ }  
   if ($result3['provider']) {   // Use provider in case there is an ins record w/ unassigned insco
    echo "<tr><td><span class='bold'>" .
     xlt('Primary Insurance') . ': ' . text($insco_name) .
@@ -1294,7 +1294,10 @@ expand_collapse_widget($widgetTitle, $widgetLabel, $widgetButtonLabel,
         // 
         $current_date2 = date('Y-m-d');
         $events = array();
-        $events = fetchAppointments($current_date2, null, $pid, null, null, null, null, null, null, false, true); //////
+        $apptNum = (int)$GLOBALS['number_of_appts_to_show'];
+        if($apptNum != 0) $apptNum2 = abs($apptNum);
+        else $apptNum2 = 10;
+        $events = fetchNextXAppts($current_date2, $pid, $apptNum2);
         $events = sortAppointments($events);
         //////
 
