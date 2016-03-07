@@ -57,6 +57,11 @@ define('LIBPATH', $srcdir);
             $s='q '.$this->TextColor.' '.$s.' Q';
         $this->_out($s);
     }
+
+	function _out($s)
+	{
+		parent::_out($s);
+	}
   }
 
 

@@ -193,8 +193,8 @@ class Barcode {
 
         $fn = function($points) use ($pdf) {
             $op = 'f';
-            $h = $pdf->h;
-            $k = $pdf->k;
+            $h = $pdf->getPageHeight();
+            $k = $pdf->getScaleFactor();
             $points_string = '';
             for($i=0; $i < 8; $i+=2){
                 $points_string .= sprintf('%.2F %.2F', $points[$i]*$k, ($h-$points[$i+1])*$k);
