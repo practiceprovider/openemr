@@ -37,11 +37,10 @@
  * @author Laurent PASSEBECQ
  * @copyright 2003 Laurent PASSEBECQ
 **/
+require_once("$srcdir/html2pdf/vendor/tecnickcom/tcpdf/tcpdf.php");
+define('LIBPATH', $srcdir);
 
-require_once("$srcdir/html2pdf/_fpdf/fpdf.php");
-
-
- class eFPDF extends FPDF{
+ class eFPDF extends TCPDF{
     function TextWithRotation($x, $y, $txt, $txt_angle, $font_angle=0)
     {
         $font_angle+=90+$txt_angle;
@@ -53,7 +52,7 @@ require_once("$srcdir/html2pdf/_fpdf/fpdf.php");
         $font_dx=cos($font_angle);
         $font_dy=sin($font_angle);
     
-        $s=sprintf('BT %.2F %.2F %.2F %.2F %.2F %.2F Tm (%s) Tj ET',$txt_dx,$txt_dy,$font_dx,$font_dy,$x*$this->k,($this->h-$y)*$this->k,$this->_escape($txt));
+        $s=sprintf('BT %.2F %.2F %.2F %.2F %.2F %.2F Tm (%s) Tj ET',$txt_dx,$txt_dy,$font_dx,$font_dy,$x*$this->k,($this->h-$y)*$this->k,TCPDF_STATIC::_escape($txt));
         if ($this->ColorFlag)
             $s='q '.$this->TextColor.' '.$s.' Q';
         $this->_out($s);
@@ -61,7 +60,7 @@ require_once("$srcdir/html2pdf/_fpdf/fpdf.php");
   }
 
 
-class PDF_Label extends FPDF {
+class PDF_Label extends TCPDF {
 
 	// Private properties
 	var $_Margin_Left;			// Left margin of labels
@@ -105,7 +104,8 @@ class PDF_Label extends FPDF {
 		parent::__construct('P', $unit, $Tformat['paper-size']);
 		$this->_Metric_Doc = $unit;
 		$this->_Set_Format($Tformat);
-		$this->SetFont('Arial');
+		$this->font = TCPDF_FONTS::addTTFfont(LIBPATH . '/fonts/arial.ttf', '', '', 32);
+		$this->SetFont($this->font);
 		$this->SetMargins(0,0); 
 		$this->SetAutoPageBreak(false); 
 		$this->_COUNTX = $posX-2;

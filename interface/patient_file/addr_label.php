@@ -51,7 +51,7 @@ $dob = oeFormatShortDate($patdata['DOB']);
 $pdf = new PDF_Label('5160'); // used this to get the basic info to the class
 $pdf = new eFPDF('P', 'mm',array(102,252)); // set the orentation, unit of measure and size of the page
 $pdf->AddPage();
-$pdf->SetFont('Arial','',50);
+$pdf->SetFont($pdf->font,'',50);
 
 
 $fontSize = 40;
