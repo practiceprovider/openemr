@@ -196,10 +196,22 @@ if (!empty($reg)) {
           $old_category = $new_category;
           $DivId++;
         }
-        $StringEcho.= "<tr><td style='border-top: 1px solid #000000;padding:0px;'><a onclick=\"openNewForm('" . $rootdir .'/patient_file/encounter/load_form.php?formname=' .urlencode($entry['directory']) .
-        "')\" href='JavaScript:void(0);'>" . xl_form_title($nickname) . "</a></td></tr>";
+
+        $StringEcho.= "<tr><td style='border-top: 1px solid #000000;padding:0px;'>
+<a onclick=\"openNewForm('" . $rootdir .'/patient_file/encounter/load_form.php?formname=' .urlencode($entry['directory']) . "')\" href='JavaScript:void(0);'>" . xl_form_title($nickname) . "</a>
+</td></tr>";
       }
   }
+
+    $StringEcho .= "<tr><td style='border-top: 1px solid #000000;padding:0px;'>
+<a onclick=\"openNewForm('/interface/patient_file/encounter/load_form.php?formname=clinnection')\"
+href='JavaScript:void(0);'>Clinnection</a>
+</td></tr>";
+
+    $StringEcho .= "<tr><td style='border-top: 1px solid #000000;padding:0px;'>
+<a href='/clinnection/validationRequest/view/$encounter' target='_blank'>View Transcript</a>
+</td></tr>";
+
   $StringEcho.= '</table></div></li>';
 }
 if($StringEcho){
