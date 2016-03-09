@@ -299,7 +299,12 @@ $GLOBALS['logoBarHeight'] = 110;
 // The height in pixels of the Navigation bar:
 $GLOBALS['navBarHeight'] = 22;
 // The height in pixels of the Title bar:
-$GLOBALS['titleBarHeight'] = 70;
+
+if (basename($GLOBALS['css_header']) == 'style_bootstrap.css') {
+  $GLOBALS['titleBarHeight'] = 70;
+} else {
+  $GLOBALS['titleBarHeight'] = 40;
+}
 
 // The assistant word, MORE printed next to titles that can be clicked:
 //   Note this label gets translated here via the xl function
