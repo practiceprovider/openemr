@@ -444,7 +444,7 @@ while ($frow = sqlFetchArray($fres)) {
       end_group();
       $group_seq++;    // ID for DIV tags
       $group_name = substr($this_group, 1);
-     // if (strlen($last_group) > 0);
+
      if($varCount==1){
           echo "<div class=\"parent arrow-down\"><div class=\"accordionToggle\">";
           echo "<input type='checkbox' checked>";
@@ -452,12 +452,9 @@ while ($frow = sqlFetchArray($fres)) {
           echo "<div class=\"parent\"><div class=\"accordionToggle\">";
           echo "<input type='checkbox'>";
      }
-          
-        
+
       // Modified 6-09 by BM - Translate if applicable  
       echo xl_layout_label($group_name) . "</div>\n";
-      //echo " >" . "<input type='checkbox'>" . xl_layout_label($group_name) . "</div>\n";
-
       echo "<div id='div_$group_seq' class='section' style='display:$display_style;'>\n";
       echo " <table border='0' cellpadding='0'>\n";
       $display_style = 'none';
