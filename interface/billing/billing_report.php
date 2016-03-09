@@ -831,7 +831,7 @@ if(is_array($ret))
         "','" . addslashes($ptname) . "'," . $iter['enc_encounter'] .
         ",'" . oeFormatShortDate($raw_encounter_date) . "',' " . 
         xl('DOB') . ": " . oeFormatShortDate($name['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($name['DOB_YMD']) . "');
-                 top.window.setPatientEncounter(EncounterIdArray[" . $iter['enc_pid'] . "],EncounterDateArray[" . $iter['enc_pid'] . 
+                 top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . $iter['enc_pid'] . "],EncounterDateArray[" . $iter['enc_pid'] .
                  "], CalendarCategoryArray[" . $iter['enc_pid'] . "])\">[" .
         xlt('To Enctr') . " " . text(oeFormatShortDate($raw_encounter_date)) . "]</a>";
         
@@ -842,7 +842,7 @@ if(is_array($ret))
         "','" . addslashes($ptname) . "'," . $iter['enc_encounter'] .
         ",'" . oeFormatShortDate($raw_encounter_date) . "',' " . 
         xl('DOB') . ": " . oeFormatShortDate($name['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($name['DOB_YMD']) . "');
-                 top.window.setPatientEncounter(EncounterIdArray[" . $iter['enc_pid'] . "],EncounterDateArray[" . $iter['enc_pid'] . 
+                 top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . $iter['enc_pid'] . "],EncounterDateArray[" . $iter['enc_pid'] .
                  "], CalendarCategoryArray[" . $iter['enc_pid'] . "])\">[" . xlt('To Dems') . "]</a>";
         $divnos=$divnos+1;
       $lhtml .= "&nbsp;&nbsp;&nbsp;<a  onclick='divtoggle(\"spanid_$divnos\",\"divid_$divnos\");' class='small' id='aid_$divnos' href=\"JavaScript:void(0);".
