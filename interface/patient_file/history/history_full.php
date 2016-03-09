@@ -224,11 +224,6 @@ div.tab {
 
 </head>
 <body class="body_top">
-
-<p>&nbsp;</p>    
-<p>
-    <?php include('../pills.php'); ?>
-</p>    
 <?php
 $result = getHistoryData($pid);
 if (!is_array($result)) {
