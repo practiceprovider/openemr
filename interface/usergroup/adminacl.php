@@ -33,13 +33,7 @@ if (!isset($phpgacl_location)) {
  <script type="text/JavaScript">
 	
  $(document).ready(function(){	
-  
-  //Show membership section by default
-//  $("#membership_show").click();
-//  membership_show();
-  //Show membership section by default
-				
-  $("a.link_submit").livequery("click", function(){	
+  $("a.link_submit").livequery("click", function(){
    generic_click(this);
    return false;
   });
