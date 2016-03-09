@@ -1974,14 +1974,6 @@ input[type="textbox"] {
   width: 100% !important;
 }
 
-.small {
-  @extend .css_button_link;
-}
-
-.small > a {
-  @extend .btn-primary;
-}
-
 #accordion h3 span,
 #accordion h3 a {
   color: #000;
