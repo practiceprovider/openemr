@@ -290,11 +290,7 @@ div.tab {
 </head>
 <body class="body_top" onload="<?php echo $body_onload_code; ?>" >
 
-<p>&nbsp;</p>    
-<p>
-    <?php include('../pills.php'); ?>
-</p>    
-    
+<p>&nbsp;</p>
 <form name='new_transaction' method='post' action='add_transaction.php?transid=<?php echo htmlspecialchars( $transid, ENT_QUOTES); ?>' onsubmit='return validate(this)'>
 <input type='hidden' name='mode' value='add'>
 
