@@ -1,15 +1,40 @@
 <?php
+/**
+ * interface/patient_file/pills.php
+ *
+ * SSI for Patient/Demographics navigation pills.
+ *
+ * Copyright (C) 2016 Tony Arra <tony@practiceprovider.com>
+ *
+ * LICENSE: This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://opensource.org/licenses/gpl-license.php>;.
+ *
+ * @package OpenEMR
+ * @author  Tony Arra <tony@practiceprovider.com>
+ * @link    http://www.open-emr.org
+ */
+
 $page = basename($_SERVER['PHP_SELF']);
 $path = $GLOBALS['webroot'] . '/interface/patient_file/';
+$s_pid = attr($pid);
 
 $pills = array(
     'Patient' => $path . 'summary/demographics.php',
     'History' => $path . 'history/history.php',
     'Report' => $path . 'report/patient_report.php',
-    'Documents' => $path . "../../controller.php?document&list&patient_id=$pid",
+    'Documents' => $path . "../../controller.php?document&list&patient_id=$s_pid",
     'Transactions' => $path . 'transaction/transactions.php',
     'Issues' => $path . 'summary/stats_full.php?active=all',
-    'Ledger' => $path . "../reports/pat_ledger.php?form=1&patient_id=$pid",
+    'Ledger' => $path . "../reports/pat_ledger.php?form=1&patient_id=$s_pid",
+    'External Data' => $path . "../reports/external_data.php",
 )
 ?>
 

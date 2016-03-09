@@ -127,6 +127,7 @@ $to_date = fixDate($_POST['form_to_date'], date('Y-m-d'));
         </style>
     </head>
     <body class="body_top">
+        <?php include('../patient_file/pills.php') ?>
         <div class="dm-ed-in-1">
             <div class="dm-ed-in-2"></div>
             <h3><?php echo xlt('External Data') ?></h3> 
