@@ -330,7 +330,7 @@ foreach ($code_types as $key => $value) {
 
 </head>
 <body class="body_top" >
-<p class="title-background">
+<p class="title title-custom">
     <b><?php echo xlt('Code'); ?></b>
 </p>
 <?php if ($GLOBALS['concurrent_layout']) {

@@ -15,7 +15,7 @@
     list.init();
 </script>
 
-<p class="title-background">
+<p class="title title-custom">
 <b>
 	<?php echo out( xl( 'Plans Configuration' ) ); ?>	
 
@@ -24,7 +24,7 @@
 </a>
 </b>
 </p>
-<p class="title-background">
+<p class="title title-custom">
 <b>
 	<?php echo out( xl( 'Rules Configuration' ) ); ?>	
 

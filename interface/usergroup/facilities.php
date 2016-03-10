@@ -105,7 +105,7 @@ $(document).ready(function(){
 
 <div>
     <div>
-    <p class="title-background">
+    <p class="title-custom">
         <b><?php xl('Facilities','e'); ?></b>&nbsp;</b>    
     </p>    
 	<table class="table table-striped"><tr><td>
