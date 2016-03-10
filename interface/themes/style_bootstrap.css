@@ -11535,4 +11535,7 @@ div.patient-pills span.css_button_link > a.active {
   position: relative;
   border-radius: 5px 5px 0 0 !important; }
 
+td[align=right] {
+  text-align: right; }
+
 /*# sourceMappingURL=style_bootstrap.css.map */

@@ -2403,3 +2403,8 @@ div.patient-pills span.css_button_link >  a.active {
   position: relative;
   border-radius: 5px 5px 0 0 !important;
 }
+
+//Backwards compatibility for the deprecated TD align attribute.
+td[align=right] {
+  text-align: right
+}
