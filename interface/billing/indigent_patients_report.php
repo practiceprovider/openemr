@@ -74,7 +74,7 @@ if (!$INTEGRATED_AR) SLConnect();
 
 <body class="body_top">
 
-<p class='title title-background'><b><?php xl('Report','e'); ?> - <?php xl('Indigent Patients','e'); ?></b></p>
+<span class='title title-background'><?php xl('Report','e'); ?> - <?php xl('Indigent Patients','e'); ?></span>
 
 <form method='post' action='indigent_patients_report.php' id='theform'>
 

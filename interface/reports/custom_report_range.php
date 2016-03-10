@@ -177,7 +177,7 @@ if ($form_patient == '' ) $form_pid = '';
 
 <body class="body_top">
 
-<p class='title title-background'><b><?php echo xlt('Reports'); ?> - <?php echo xlt('Superbill'); ?></b></p>
+<span class='title title-background'><?php echo xlt('Reports'); ?> - <?php echo xlt('Superbill'); ?></span>
 
 <div id="superbill_description" class='text'>
 <?php echo xlt('Superbills, sometimes referred to as Encounter Forms or Routing Slips, are an essential part of most medical practices.'); ?>

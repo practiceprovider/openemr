@@ -70,7 +70,7 @@ function userSelect() {
 <body class="body_top">
 
 <?php
-echo "<p class='title title-background'><b>" . xlt('Chart Tracker') . "</b></p>\n";
+echo "<span class='title title-background'>" . xlt('Chart Tracker') . "</span>\n";
 ?>
 
 <center>

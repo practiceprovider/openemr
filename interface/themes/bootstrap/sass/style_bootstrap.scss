@@ -2361,10 +2361,10 @@ a#clear_active span {
   padding: 12px !important;
   font-size: 18px !important;
   background: #3175B0 !important;
-}
-
-.title-background b {
   color: #fff !important;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .title-background a {

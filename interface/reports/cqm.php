@@ -303,7 +303,7 @@ else {
 <!-- Required for the popup date selectors -->
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 
-<p class='title title-background'><b><?php echo xlt('Report'); ?> - 
+<span class='title title-background'><?php echo xlt('Report'); ?> -
 
 <?php if ($type_report == "standard") { ?>
   <?php echo xlt('Standard Measures'); ?>
@@ -338,8 +338,7 @@ else {
         $dis_text = " disabled='disabled' ";
   ?>
 <?php } ?>
-</b>    
-</p>
+</span>
 
 <form method='post' name='theform' id='theform' action='cqm.php?type=<?php echo attr($type_report) ;?>' onsubmit='return validateForm()'>
 

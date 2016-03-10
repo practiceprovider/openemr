@@ -245,7 +245,7 @@ function sel_procedure() {
 
 <body class="body_top">
 
-    <p class='title title-background'><b><?php xl('Report','e'); ?> - <?php xl('Receipts Summary','e'); ?></b></p>
+<span class='title title-background'><?php xl('Report','e'); ?> - <?php xl('Receipts Summary','e'); ?></span>
 
 <form method='post' action='receipts_by_method_report.php' id='theform'>
 

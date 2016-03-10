@@ -79,9 +79,7 @@ if ($mode == "simple") {
 
 <body class='body_top'>
 <div>
-  <p class='title title-background'>
-	<b><?php echo htmlspecialchars( xl('Patient Reminders'), ENT_NOQUOTES); ?></b>
-  </p>
+  <span class='title title-background'><?php echo htmlspecialchars( xl('Patient Reminders'), ENT_NOQUOTES); ?></span>
 </div>
 <?php if ($mode == "simple") { ?> 
   <div style='float:left;margin-right:10px'>

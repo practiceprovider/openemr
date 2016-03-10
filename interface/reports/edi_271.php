@@ -255,7 +255,7 @@
 	
 <div>
 
-<p class='title title-background'><b><?php echo htmlspecialchars( xl('EDI-271 File Upload'), ENT_NOQUOTES); ?></b></p>
+<span class='title title-background'><?php echo htmlspecialchars( xl('EDI-271 File Upload'), ENT_NOQUOTES); ?></span>
 
 <form enctype="multipart/form-data" name="theform" id="theform" action="edi_271.php" method="POST" onsubmit="return top.restoreSession()">
 

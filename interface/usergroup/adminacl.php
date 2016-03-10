@@ -521,11 +521,11 @@ if (!isset($phpgacl_location)) {
 </head>
 
 <body class="body_top">
- <p class='title title-background'><b><?php xl('Access Control List Administration','e'); ?><b>&nbsp;
+ <span class='title title-background'><?php xl('Access Control List Administration','e'); ?>&nbsp;
  <?php if ($phpgacl_location) {
   echo "<a href='../../gacl/admin/acl_admin.php' onclick='top.restoreSession()'><span class='back'>(" . xl('Advanced') . ")</span></a>";
  } ?>
- </p>
+ </span>
  <br><br>	
  <div id='membership_edit'>
   <div class="parent">

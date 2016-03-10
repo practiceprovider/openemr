@@ -288,7 +288,7 @@ if ($_POST['form_get_hl7']==='true') {
 
 <body class="body_top">
 
-<p class='title title-background'><b><?php xl('Report','e'); ?> - <?php xl('Syndromic Surveillance - Non Reported Issues','e'); ?></b></p>
+<span class='title title-background'><?php xl('Report','e'); ?> - <?php xl('Syndromic Surveillance - Non Reported Issues','e'); ?></span>
 
 <div id="report_parameters_daterange">
 <?php echo date("d F Y", strtotime($form_from_date)) ." &nbsp; to &nbsp; ". date("d F Y", strtotime($form_to_date)); ?>
@@ -374,7 +374,7 @@ onsubmit='return top.restoreSession()'>
             '>
             <span>
               <?php xl('Refresh','e'); ?>
-            </spain>
+            </span>
             </a>
             <?php if ($_POST['form_refresh']) { ?>
               <a href='#' class='css_button' id='printbutton'>

@@ -91,7 +91,7 @@ require_once "$srcdir/report_database.inc";
 <!-- Required for the popup date selectors -->
 <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
 
-<p class='title title-background'><b><?php echo htmlspecialchars( xl('Report History/Results'), ENT_NOQUOTES); ?></b></p>
+<span class='title title-background'><?php echo htmlspecialchars( xl('Report History/Results'), ENT_NOQUOTES); ?></span>
 
 <form method='post' name='theform' id='theform' action='report_results.php' onsubmit='return top.restoreSession()'>
 
