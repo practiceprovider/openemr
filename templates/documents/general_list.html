@@ -17,7 +17,8 @@
 {php} } else { {/php}
   <body class="body_top">
 {php} } {/php}
-{php} require('interface/patient_file/pills.php') {/php}
+{php} if ($_GET['patient_id'] !== '00') include('interface/patient_file/pills.php')
+{/php}
 <div id="documents_list">
 <table>
 	<tr>

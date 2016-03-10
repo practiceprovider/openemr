@@ -60,7 +60,7 @@ function showhideMenu() {
 	var showMenuLink = document.getElementById("showMenuLink");
 
 	if (m.cols == targetWidth) {
-		m.cols = '<?php echo $GLOBALS['gbl_nav_area_width'] ?>,*'
+		m.cols = '<?php echo $GLOBALS['gbl_nav_area_width']; ?>,*'
 		showMenuLink.innerHTML = '<?php echo htmlspecialchars( xl('Hide Menu'), ENT_QUOTES); ?>';
 		showMenuLink.setAttribute('class', '');
 	} else {
@@ -133,8 +133,8 @@ $res = sqlQuery("select * from users where username='".$_SESSION{"authUser"}."'"
 		<td  align="right" style="vertical-align:top;"><a href="../logout.php" target="_top" class="css_button_small" style='float:right;' id="logout_link" onclick="top.restoreSession()" >
 			<span><?php echo htmlspecialchars( xl('Logout'), ENT_QUOTES) ?></span></a></td>
 	</tr><tr>
-		<td colspan='2' valign="baseline" align='right'><B>
-			<span class="text title_bar_top" title="<?php echo htmlspecialchars( xl('Authorization group') .': '.$_SESSION['authGroup'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($res{"fname"}.' '.$res{"lname"},ENT_NOQUOTES); ?></span></span></td>
+		<td colspan='2' valign="baseline" align='right'><b>
+			<span class="text title_bar_top" title="<?php echo htmlspecialchars( xl('Authorization group') .': '.$_SESSION['authGroup'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($res{"fname"}.' '.$res{"lname"},ENT_NOQUOTES); ?></span></b></td>
     	</tr></table>
 </td>
 </tr>

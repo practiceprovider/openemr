@@ -766,11 +766,7 @@ if (f.form_phone_cell   ) phonekeyup(f.form_phone_cell   ,mypcc);
 // var override = false; // flag that overrides the duplication warning
 
 $(document).ready(function() {
-    /*$(':checkbox').click(function(e) {
-        e.preventDefault();
-    });*/
-
-    $('.accordionToggle').click(function(){        
+    $('.accordionToggle').click(function(){
       $(this).siblings().toggle();
       $(this).parent().toggleClass('arrow-down');
 
