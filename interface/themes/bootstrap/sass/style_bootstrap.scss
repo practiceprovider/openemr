@@ -1960,10 +1960,6 @@ input[type="textbox"] {
   @extend .form-control;
 }
 
-.iframe.medium_modal {
-  @extend .btn-primary, input[type="button"];
-}
-
 .iframe.medium_modal:hover {
   text-decoration: none;
 }
