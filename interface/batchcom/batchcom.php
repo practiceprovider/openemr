@@ -137,9 +137,9 @@ if ($_POST['form_action']=='Process') {
 	</head>
 	<body class="body_top">
 	<!-- larry's sms/email notification -->
-        <span class="title-background"><?php include_once("batch_navigation.php");?></span>
+        <span class="title"><?php include_once("batch_navigation.php");?></span>
 	<!--- end of larry's insert -->
-	<span class="title-background"><?php xl('Batch Communication Tool','e')?></span>
+	<span class="title title-background"><?php xl('Batch Communication Tool','e')?></span>
 	<br><br>
 	<div class="text">
         <?php    
@@ -179,7 +179,7 @@ if ($_POST['form_action']=='Process') {
 </head>
 <body class="body_top batchCom">
 <!-- larry's sms/email notification -->
-<span class="title-background"><?php include_once("batch_navigation.php");?></span>
+<span class="title"><?php include_once("batch_navigation.php");?></span>
 <!--- end of larry's insert -->
 <span class="title title-background"><?php xl('Batch Communication Tool','e')?></span>
 
