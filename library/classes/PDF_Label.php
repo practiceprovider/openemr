@@ -64,10 +64,9 @@ define('LIBPATH', $srcdir);
 	}
   }
 
+require_once("$srcdir/fpdf/fpdf.php");
 
-class PDF_Label extends TCPDF
-{
-
+class PDF_Label extends FPDF {
     // Private properties
     var $_Margin_Left;			// Left margin of labels
     var $_Margin_Top;			// Top margin of labels
