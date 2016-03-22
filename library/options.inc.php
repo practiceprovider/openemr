@@ -1677,8 +1677,9 @@ function generate_display_field($frow, $currvalue) {
 
   // date
   else if ($data_type == 4) {
+    $asof = '';
     $s = '';
-    $agestr = optionalAge($frow, $currvalue);
+    $agestr = optionalAge($frow, $currvalue, $asof);
     if ($agestr) {
       $s .= "<table cellpadding='0' cellspacing='0'><tr><td class='text'>";
     }
