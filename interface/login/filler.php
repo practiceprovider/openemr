@@ -9,7 +9,7 @@ include_once("../globals.php");
 <link rel=stylesheet href="<?php echo $css_header;?>" type="text/css">
 <link rel=stylesheet href="../themes/login.css" type="text/css">
 </head>
-<body class="logobar">
+<body class="logobar" style="background: white">
 <img style="position:absolute;top:0;left:0;"src=" <?php echo $GLOBALS['webroot']?>/interface/pic/logo.gif" />
 </body>
 </html>

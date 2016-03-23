@@ -211,7 +211,10 @@ $ip=$_SERVER['REMOTE_ADDR'];
 </div>
 <div style="clear: both;"> </div>
 <div class="version">
-<?php echo "v".text($openemr_version) ?> | <a  href="../../acknowledge_license_cert.html" target="main"><?php echo xlt('Acknowledgments, Licensing and Certification'); ?></a>
+<?php echo "v".'2.0b' ?> |
+    <a href="http://www.practiceprovider.com" target="main">
+        <?= xlt('2016 Practice Provider Corporation. All rights reserved.') ?>
+    </a>
 </div>
 </div>
 <div class="demo">
