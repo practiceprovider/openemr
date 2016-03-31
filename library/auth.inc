@@ -34,7 +34,6 @@ require_once("$srcdir/authentication/login_operations.php");
 $incoming_site_id = '';
 
 
-
 if (isset($_GET['auth']) && ($_GET['auth'] == "login") && isset($_POST['authUser']) &&
     isset($_POST['clearPass']) && isset($_POST['authProvider']))
 {

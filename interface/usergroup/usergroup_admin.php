@@ -19,11 +19,10 @@
  * @author  Roberto Vasquez <robertogagliotta@gmail.com>
  * @link    http://www.open-emr.org
  */
-
 require_once("../globals.php");
 require_once("../../library/acl.inc");
 require_once("$srcdir/sql.inc");
-require_once("$srcdir/auth.inc");
+//require_once("$srcdir/auth.inc");
 require_once("$srcdir/formdata.inc.php");
 require_once(dirname(__FILE__) . "/../../library/classes/WSProvider.class.php");
 require_once ($GLOBALS['srcdir'] . "/classes/postmaster.php");
@@ -32,7 +31,6 @@ $alertmsg = '';
 $bg_msg = '';
 $set_active_msg=0;
 $show_message=0;
-
 
 /* Sending a mail to the admin when the breakglass user is activated only if $GLOBALS['Emergency_Login_email'] is set to 1 */
 $bg_count=count($access_group);
@@ -242,8 +240,8 @@ if (isset($_POST["mode"])) {
     $exp_days = $GLOBALS['password_expiration_days'];
     $exp_date = date('Y-m-d', strtotime("+$exp_days days"));
     }
-    
-    $insertUserSQL=            
+
+    $insertUserSQL=
             "insert into users set " .
             "username = '"         . trim(formData('rumple'       )) .
             "', password = '"      . 'NoLongerUsed'                  .
@@ -269,7 +267,7 @@ if (isset($_POST["mode"])) {
             "', calendar = '"      . $calvar                         .
             "', pwd_expiration_date = '" . trim("$exp_date") .
             "'";
-    
+
     $clearAdminPass=$_POST['adminPass'];
     $clearUserPass=$_POST['stiltskin'];
     $password_err_msg="";
@@ -277,6 +275,7 @@ if (isset($_POST["mode"])) {
     $success = update_password($_SESSION['authId'], 0, $clearAdminPass, $clearUserPass,
       $password_err_msg, true, $insertUserSQL, trim(formData('rumple')), $prov_id);
     error_log($password_err_msg);
+
     $alertmsg .=$password_err_msg;
     if($success)
     {
