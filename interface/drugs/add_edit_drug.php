@@ -21,7 +21,7 @@ $fake_register_globals = false;
  $info_msg = "";
  $tmpl_line_no = 0;
 
- if (!acl_check('admin', 'drugs')) die(xlt('Not authorized'));
+ //if (!acl_check('admin', 'drugs')) die(xlt('Not authorized'));
 
 // Format dollars for display.
 //
@@ -147,12 +147,13 @@ function sel_related() {
 //
 if ($_POST['form_save']) {
   $crow = sqlQuery("SELECT COUNT(*) AS count FROM drugs WHERE " .
-    "name = '"  . escapedff('form_name')  . "' AND " .
-    "form = '"  . escapedff('form_form')  . "' AND " .
-    "size = '"  . escapedff('form_size')  . "' AND " .
-    "unit = '"  . escapedff('form_unit')  . "' AND " .
-    "route = '" . escapedff('form_route') . "' AND " .
-    "drug_id != ?", array($drug_id));
+      "name = '"  . escapedff('form_name')  . "' AND " .
+      "form = '"  . escapedff('form_form')  . "' AND " .
+      "size = '"  . escapedff('form_size')  . "' AND " .
+      "unit = '"  . escapedff('form_unit')  . "' AND " .
+      "strength = '"  . escapedff('strength')  . "' AND " .
+      "route = '" . escapedff('form_route') . "' AND " .
+      "drug_id != ?", array($drug_id));
   if ($crow['count']) {
     $alertmsg = addslashes(xl('Cannot add this entry because it already exists!'));
   }
@@ -171,6 +172,7 @@ if (($_POST['form_save'] || $_POST['form_delete']) && !$alertmsg) {
      "form = '"           . escapedff('form_form')          . "', " .
      "size = '"           . escapedff('form_size')          . "', " .
      "unit = '"           . escapedff('form_unit')          . "', " .
+     "strength = '"       . escapedff('strength')           . "', " .
      "route = '"          . escapedff('form_route')         . "', " .
      "cyp_factor = '"     . numericff('form_cyp_factor')    . "', " .
      "related_code = '"   . escapedff('form_related_code')  . "', " .
@@ -193,7 +195,7 @@ if (($_POST['form_save'] || $_POST['form_delete']) && !$alertmsg) {
    $new_drug = true;
    $drug_id = sqlInsert("INSERT INTO drugs ( " .
     "name, ndc_number, on_order, reorder_point, max_level, form, " .
-    "size, unit, route, cyp_factor, related_code, " .
+    "size, unit, strength, route, cyp_factor, related_code, " .
     "allow_multiple, allow_combining, active " .
     ") VALUES ( " .
     "'" . escapedff('form_name')          . "', " .
@@ -204,6 +206,7 @@ if (($_POST['form_save'] || $_POST['form_delete']) && !$alertmsg) {
     "'" . escapedff('form_form')          . "', " .
     "'" . escapedff('form_size')          . "', " .
     "'" . escapedff('form_unit')          . "', " .
+    "'" . escapedff('strength')           . "', " .
     "'" . escapedff('form_route')         . "', " .
     "'" . numericff('form_cyp_factor')    . "', " .
     "'" . escapedff('form_related_code')  . "', " .

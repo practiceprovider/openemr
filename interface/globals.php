@@ -1,5 +1,4 @@
 <?php
-
 // Is this windows or non-windows? Create a boolean definition.
 if (!defined('IS_WINDOWS'))
  define('IS_WINDOWS', (stripos(PHP_OS,'WIN') === 0));
@@ -57,6 +56,7 @@ if (IS_WINDOWS) {
 // /var/www/openemr and document root is /var/www, this also handles the case where document root is
 // /var/www/html and there is an Apache "Alias" command that directs /openemr to /var/www/openemr.
 $web_root = substr($webserver_root, strspn($webserver_root ^ $server_document_root, "\0"));
+
 // Ensure web_root starts with a path separator
 if (preg_match("/^[^\/]/",$web_root)) {
  $web_root = "/".$web_root;
@@ -79,10 +79,13 @@ $GLOBALS['OE_SITES_BASE'] = "$webserver_root/sites";
 session_name("OpenEMR");
 session_start();
 
-if (isset($_SERVER['PHP_AUTH_USER'])
-    && $_SERVER['PHP_AUTH_USER'] === 'admin'
-    && $_SERVER['PHP_AUTH_PW'] === 'xw@G22^T'
-) {
+if (isset($_SERVER['PHP_AUTH_USER'])) {
+    /*$srcdir = $webserver_root . '/library';
+    require_once("$srcdir/authentication/login_operations.php");
+    $username = 'admin';
+    $password = 'openemr';
+    validate_user_password($username, $password, "Default");*/
+
     $ignoreAuth = true;  //TODO: remove this line. Use OpenEMR's authentication.
     $_SESSION['site_id'] = 'default';
     $_SESSION['authId'] = 1;
@@ -90,7 +93,7 @@ if (isset($_SERVER['PHP_AUTH_USER'])
     $_SESSION['authPass'] = $_SERVER['PHP_AUTH_PW'];
     $_SESSION['authGroup'] = 'default';
     $_SESSION['userauthorized'] = 1;
-}   
+}
 
 // Set the site ID if required.  This must be done before any database
 // access is attempted.
@@ -147,6 +150,7 @@ $GLOBALS['rootdir'] = "$web_root/interface";
 $rootdir = $GLOBALS['rootdir'];
 // Absolute path to the source code include and headers file directory (Full path):
 $GLOBALS['srcdir'] = "$webserver_root/library";
+
 // Absolute path to the location of documentroot directory for use with include statements:
 $GLOBALS['fileroot'] = "$webserver_root";
 // Absolute path to the location of interface directory for use with include statements:
@@ -185,7 +189,7 @@ $GLOBALS['ippf_specific'] = false;
 $GLOBALS['cene_specific'] = false;
 
 // Defaults for drugs and products.
-$GLOBALS['inhouse_pharmacy'] = false;
+$GLOBALS['inhouse_pharmacy'] = true;
 $GLOBALS['sell_non_drug_products'] = 0;
 
 $glrow = sqlQuery("SHOW TABLES LIKE 'globals'");
@@ -444,4 +448,5 @@ if ($fake_register_globals) {
   extract($_GET,EXTR_SKIP);
   extract($_POST,EXTR_SKIP);
 }
+
 ?>

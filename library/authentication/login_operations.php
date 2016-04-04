@@ -33,6 +33,7 @@ require_once("$srcdir/authentication/common_operations.php");
  */
 function validate_user_password($username,&$password,$provider)
 {
+    //echo "$username $password $provider"; die;
     $ip=$_SERVER['REMOTE_ADDR'];
     
     $valid=false;
