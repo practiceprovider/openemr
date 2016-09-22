@@ -299,21 +299,4 @@ class PatientImport
         $insert_id = sqlInsert($sql);
         array_push($this->insertIDs, $insert_id);
     }
-
-    /**
-     * Builds drop dwon with CSV columns headers
-     *
-     * @param $data array of CSV headers
-     * @return string drop dwon with headers
-     */
-    public function buildCSVHeaderDropDown($data, $field_name)
-    {
-        $return = "<select name='$field_name'>";
-        $return .= "<option value=''></option>";
-        foreach ($data as $col) {
-            $return .= "<option value='$col'>$col</option>";
-        }
-        $return .= "</select>";
-        return $return;
-    }
 }

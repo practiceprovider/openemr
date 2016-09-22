@@ -21,7 +21,7 @@
   onMouseOver="MM_changeProp('jtef','','style.marginLeft','0px','DIV');" onMouseOut="MM_changeProp('jtef','','style.marginLeft','-184px','DIV');"  ><img src="../../pic/hdrjtoeform.png" width="18" height="142" align="right">
   <div style="padding: 2px; border: 2px solid black; border-left:none; border-right:1px solid black; margin-right: 17px; <?php echo $height_tag; ?>: 134px; background-color: white;">
     <h2 style="margin-bottom: 4px;"><img src="../../pic/menu/doc1.png" height="16" width="16" align="left">&nbsp;Encounter</h2>
-    <small>Encounter for: <?php echo $patient{'fname'}.' '.$patient{'mname'}.' '.$patient{'lname'}; ?></small>
+    <small>Encounter for: <?php echo $import{'fname'}.' '.$import{'mname'}.' '.$import{'lname'}; ?></small>
 <div style="width:98%; overflow: hidden;">
 <?php
 
